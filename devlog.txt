@@ -4,7 +4,8 @@ DNC Devlog
 Example log: <ENTRY> [jonalfD -- 2016-12-04 14:32]
 
 API Keys:
-	Google: 
-	DarkSky:
+	Google: AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY
+	DarkSky: acaf02879f86123ab0f2aa493434e128
 	MTA: f2e0602012868a493297afd1b44ac01a
 
+——————————
