@@ -1,0 +1,10 @@
+DNC Devlog
+——————————
+
+Example log: <ENTRY> [jonalfD -- 2016-12-04 14:32]
+
+API Keys:
+	Google: 
+	DarkSky:
+	MTA: f2e0602012868a493297afd1b44ac01a
+
