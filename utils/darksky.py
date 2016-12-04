@@ -80,6 +80,18 @@ print("But it will feel like " + str(pfeel) + "°F")
 print("There will be a " + str(pwind) + "mph wind")
 print("And there will be a " + str(prainchance) + "% chance of rain")
 
+def closestHour(time):
+	origtime = time;
+	minute = int(datetime.datetime.fromtimestamp(time).strftime('%M'))
+	sminute = minute * 60
+	secinhr = 3600
+	if (minute >= 30):
+		return time - sminute + secinhr
+	else:
+		return time - sminute
+	return time
+
+
 
 
 
