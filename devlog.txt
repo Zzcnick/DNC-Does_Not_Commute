@@ -1,7 +1,9 @@
 DNC Devlog
 ——————————
 
-Example log: <ENTRY> [jonalfD -- 2016-12-04 14:32]
+Example log: 
+jonalfD -- 2016-12-04 14:32
+<ENTRY>
 
 API Keys:
 	Google: AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY
@@ -10,5 +12,16 @@ API Keys:
 
 ——————————
 
-Added basic darksky calls to darksky.py [venderbushW -- 2016-12-04 12:46]
-Started working on darksky functions in darksky.py [venderbushW -- 2016-12-04 1:25]
+venderbushW -- 2016-12-04 12:46
+Added basic darksky calls to darksky.py
+
+venderbushW -- 2016-12-04 13:25
+Started working on darksky functions in darksky.py 
+
+zhenZ -- 2016-12-04 22:53
+- Readded design document
+- Created basic app.py file
+- Added basic HTML template to templates
+
+zhenZ -- 2016-12-04 23:37
+- Added updated design document
