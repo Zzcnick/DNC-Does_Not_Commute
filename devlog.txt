@@ -32,3 +32,6 @@ ostlundW -- 2016-12-05 20:45
 
 zhenZ -- 2016-12-05 22:26
 - Added Google Distance Matrix, Geolocation and Geocoding API interaction
+
+venderbushW -- 2016-12-05 22:37
+- Finished basic DarkSky get functions

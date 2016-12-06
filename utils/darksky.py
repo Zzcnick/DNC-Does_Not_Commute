@@ -9,6 +9,8 @@ import json, urllib2, datetime
 #                DarkSky API Calls
 # ================================================
 
+masterURL = "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/"
+
 #Starting Location
 clocx = "40.7925920" 
 clocy = "-73.9465270"
@@ -80,16 +82,130 @@ print("But it will feel like " + str(pfeel) + "°F")
 print("There will be a " + str(pwind) + "mph wind")
 print("And there will be a " + str(prainchance) + "% chance of rain")
 
-def closestHour(time):
-	origtime = time;
-	minute = int(datetime.datetime.fromtimestamp(time).strftime('%M'))
-	sminute = minute * 60
-	secinhr = 3600
-	if (minute >= 30):
-		return time - sminute + secinhr
+#------------------------------------------------------------------------------------------------------------------------------------------------------
+###############
+##GLOBAL DATA##
+###############
+#------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def genURL(x, y):
+	return "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/" + str(x) + "," + str(y)
+
+def closestHourOffset(minoffset):
+	hours = 0
+	minutes = 0
+	while (minoffset > 60):
+		minoffset = minoffset - 60
+		hours += 1
+	minutes = minoffset
+	if (minutes > 30):
+		hours += 1
+		minutes = 0
 	else:
-		return time - sminute
-	return time
+		minutes = 0
+	return hours
+
+def getRainChance(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	minutely = reqdict["minutely"]
+	minutelydata = minutely["data"]
+	if (offset > 0 and offset < 61):
+		raindata = minutelydata[offset]
+		time = raindata["time"]
+		rainchance = raindata["precipProbability"]
+		return rainchance
+	else:
+		rainchance = currently["precipProbability"]
+		return rainchance
+
+def getWind(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	hourly = reqdict["hourly"]
+	closestHour = closestHourOffset(offset)
+	hourlydata = hourly["data"][closestHour]
+	if (offset == 0):
+		hourlydata = currently
+	wind = hourlydata["windSpeed"]
+	return wind
+
+def getStatus(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	hourly = reqdict["hourly"]
+	closestHour = closestHourOffset(offset)
+	hourlydata = hourly["data"][closestHour]
+	if (offset == 0):
+		hourlydata = currently
+	status = hourlydata["summary"]
+	return status
+
+def getTemp(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	hourly = reqdict["hourly"]
+	closestHour = closestHourOffset(offset)
+	hourlydata = hourly["data"][closestHour]
+	if (offset == 0):
+		hourlydata = currently
+	temp = hourlydata["temperature"]
+	return temp
+
+def getFeel(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	hourly = reqdict["hourly"]
+	url = genURL(x, y)
+	closestHour = closestHourOffset(offset)
+	hourlydata = hourly["data"][closestHour]
+	if (offset == 0):
+		hourlydata = currently
+	feel = hourlydata["apparentTemperature"]
+	return feel
+
+def getIntensity(x, y, offset):
+	url = genURL(x, y)
+	print(url)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	hourly = reqdict["hourly"]
+	closestHour = closestHourOffset(offset)
+	hourlydata = hourly["data"][closestHour]
+	if (offset == 0):
+		hourlydata = currently
+	intensity = hourlydata["precipIntensity"]
+	return intensity
+
+
+print(getRainChance(40.7925920, -73.9465270, 485))
+
+
+
+
+
+
+
+
+	
+
 
 
 
