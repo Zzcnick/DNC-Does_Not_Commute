@@ -28,3 +28,4 @@ zhenZ -- 2016-12-04 23:37
 
 wostlund -- 2016-12-05 20:45
 - Added form and new document with template details for those who are confused, the document is called templateInfo.txt
+- The form uses to path "/result" !!!

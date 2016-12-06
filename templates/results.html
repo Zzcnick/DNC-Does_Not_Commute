@@ -85,16 +85,7 @@
       </p>
       <hr>
       <h3>Fill in the Followin Infomation</h3> <!-- Form will look like this + nicer and with js-->
-          <form action="/result" method="POST">
-            <input type="text" name="location" placeholder="Current Location"><br><br>
-            <input type="text" name="destination" placeholder="Destination"> <br><br>
-              Mode of Transportation:<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="car"> Bus<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="car"> Car<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="car"> Train<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="car"> Walking
-              <br><br>
-            <input type="submit">
+          {{apiInfo}}
         </form>
         <br>
         <br>

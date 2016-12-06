@@ -1,8 +1,15 @@
-List of jinja variables and their intended purpose:
+Essential Template information to know
 
-apiInfo: for now it's a test variable for back end people to print their api info to in order to get some kind of visual response on the web page.
+result.html
+    -jinja variables
+        - apiInfo: for now it's a test variable for back end people to print their api info to in order to get some kind of visual response on the web page.
+        - title
 
-Form Info:
-  - location : user's current location
-  - destinaion : user's destination
-  - transportMode : means of transportation (bus, car, train, or walking)
+main.html
+    - Form Info:
+        - location : user's current location
+        - destinaion : user's destination
+        - transportMode : means of transportation (bus, car, train, or walking)
+    - jinja variables
+        - title
+        
