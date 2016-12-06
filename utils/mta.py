@@ -6,4 +6,4 @@ import urllib2, json
 #                  MTA API Calls
 # ================================================
 
-data = urllib2.urlopen()
+#data = urllib2.urlopen()

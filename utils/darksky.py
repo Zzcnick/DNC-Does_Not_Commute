@@ -22,7 +22,7 @@ masterURL = "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/"
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def genURL(x, y):
-	return "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/" + str(x) + "," + str(y)
+	return masterURL + str(x) + "," + str(y)
 
 def convertTime(time, flag):
 	if (flag == 1):
@@ -201,6 +201,8 @@ def getIcon(x, y, offset):
 		hourlydata = hourly["data"][closestHour]
 		icon = hourlydata["icon"]
 		return icon
+
+
 
 
 
