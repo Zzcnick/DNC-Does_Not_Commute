@@ -35,3 +35,6 @@ zhenZ -- 2016-12-05 22:26
 
 venderbushW -- 2016-12-05 22:37
 - Finished basic DarkSky get functions
+
+venderbushW -- 2016-12-05 23:37
+- Finished extra Darksky get functions, completed testing and documentation

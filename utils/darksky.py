@@ -8,88 +8,29 @@ import json, urllib2, datetime
 # ================================================
 #                DarkSky API Calls
 # ================================================
+# Notes: Currently, functions only work on the
+#		next 48 hours, using offsets in minutes
+#		(max minute offset seems to be 2910)
+# ================================================
 
 masterURL = "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/"
 
-#Starting Location
-clocx = "40.7925920" 
-clocy = "-73.9465270"
-#Destination Location
-plocx = "40.7179460"
-plocy = "-74.0139050"
-
-
-curl = "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/" + clocx + "," + clocy
-#print curl
-ucurr = urllib2.urlopen(curl)
-creq = ucurr.read()
-creqdict = json.loads(creq)
-
-purl = "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/" + plocx + "," + plocy
-#print purl
-uplan = urllib2.urlopen(purl)
-preq = uplan.read()
-preqdict = json.loads(preq)
-
-#---------------------------------------------------------------------------------------------------------
-#Current Info
-
-ccurrently = creqdict["currently"]
-chourly = creqdict["hourly"]
-cminutely = creqdict["minutely"]
-
-ctime = datetime.datetime.fromtimestamp(ccurrently["time"]).strftime('%H:%M:%S -- %m-%d-%Y')
-ctemp = ccurrently["temperature"]
-cstatus = ccurrently["summary"]
-cfeel = ccurrently["apparentTemperature"]
-cwind = ccurrently["windSpeed"]
-crainchance = ccurrently["precipProbability"]
-
-print("The time is currently: " + ctime)
-print("Right now, the weather is " + cstatus)
-print("The temperature is " + str(ctemp) + "°F")
-print("But it feels like " + str(cfeel) + "°F")
-print("There is a " + str(cwind) + "mph wind")
-print("And there is a " + str(crainchance) + "% chance of rain")
-
-print("\n")
-print("Your trip will take 1 hour")
-print("\n")
-#---------------------------------------------------------------------------------------------------------
-#Destination Info
-
-pcurrently = creqdict["currently"]
-phourly = preqdict["hourly"]
-pminutely = preqdict["minutely"]
-
-phourlydata = phourly["data"] #list of hourly data readings
-pminutelydata = pminutely["data"] #list of minutely data readings
-
-raindata = pminutelydata[60]
-hourlydata = phourly["data"][1]
-
-ptime = datetime.datetime.fromtimestamp(raindata["time"]).strftime('%H:%M:%S -- %m-%d-%Y')
-ptemp = hourlydata["temperature"]
-pstatus = hourlydata["summary"]
-pfeel = hourlydata["apparentTemperature"]
-pwind = hourlydata["windSpeed"]
-prainchance = raindata["precipProbability"]
-
-print("When you reach your destination, the time will be " + ptime)
-print("The weather will be " + pstatus)
-print("The temperature will be " + str(ctemp) + "°F")
-print("But it will feel like " + str(pfeel) + "°F")
-print("There will be a " + str(pwind) + "mph wind")
-print("And there will be a " + str(prainchance) + "% chance of rain")
-
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 ###############
-##GLOBAL DATA##
+##FUNCTIONS##
 ###############
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def genURL(x, y):
 	return "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/" + str(x) + "," + str(y)
+
+def convertTime(time, flag):
+	if (flag == 1):
+		return datetime.datetime.fromtimestamp(time).strftime('%H:%M:%S')
+	if (flag == 2):
+		return datetime.datetime.fromtimestamp(time).strftime('%m-%d-%Y')
+	else:
+		return datetime.datetime.fromtimestamp(time).strftime('%H:%M:%S -- %m-%d-%Y')
 
 def closestHourOffset(minoffset):
 	hours = 0
@@ -117,10 +58,16 @@ def getRainChance(x, y, offset):
 		raindata = minutelydata[offset]
 		time = raindata["time"]
 		rainchance = raindata["precipProbability"]
-		return rainchance
+		return rainchance * 100
+	if (offset > 60):
+		hourly = reqdict["hourly"]
+		closestHour = closestHourOffset(offset)
+		hourlydata = hourly["data"][closestHour]
+		precip = hourlydata["precipProbability"]
+		return rainchance * 100
 	else:
 		rainchance = currently["precipProbability"]
-		return rainchance
+		return rainchance * 100
 
 def getWind(x, y, offset):
 	url = genURL(x, y)
@@ -181,7 +128,6 @@ def getFeel(x, y, offset):
 
 def getIntensity(x, y, offset):
 	url = genURL(x, y)
-	print(url)
 	curr = urllib2.urlopen(url)
 	req = curr.read()
 	reqdict = json.loads(req)
@@ -194,9 +140,67 @@ def getIntensity(x, y, offset):
 	intensity = hourlydata["precipIntensity"]
 	return intensity
 
+def getSunset(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	daily = reqdict["daily"]
+	dailydata = daily["data"][offset]
+	return dailydata["sunsetTime"]
 
-print(getRainChance(40.7925920, -73.9465270, 485))
+def getSunrise(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	daily = reqdict["daily"]
+	dailydata = daily["data"][offset]
+	return dailydata["sunriseTime"]
 
+def getPrecipType(x, y, offset):
+	if (getIntensity(x, y, offset) == 0):
+		return "none"
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
+		currently = reqdict["currently"]
+		minutely = reqdict["minutely"]
+		minutelydata = minutely["data"]
+		if (offset > 0 and offset < 61):
+			raindata = minutelydata[offset]
+			time = raindata["time"]
+			precip = raindata["precipType"]
+			return precip
+		if (offset > 60):
+			hourly = reqdict["hourly"]
+			closestHour = closestHourOffset(offset)
+			hourlydata = hourly["data"][closestHour]
+			precip = hourlydata["precipType"]
+			return precip
+		else:
+			precip = currently["precipType"]
+			return precip
+
+def getIcon(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	currently = reqdict["currently"]
+	minutely = reqdict["minutely"]
+	minutelydata = minutely["data"]
+	if (offset == 0):
+		icon = currently["icon"]
+		return icon
+	else:
+		hourly = reqdict["hourly"]
+		closestHour = closestHourOffset(offset)
+		hourlydata = hourly["data"][closestHour]
+		icon = hourlydata["icon"]
+		return icon
 
 
 
