@@ -67,3 +67,17 @@ def dm_dist(lat1, lng1, lat2, lng2):
 # print "Distance: ", dm_dist(d1[0],d1[1],d2[0],d2[1])
 
 
+# ================================================
+#                Directions API
+# ================================================
+
+def get_directions(origin, destination, mode):
+#    dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=42-25+247th+St,+Flushing,+NY+11363&destination=Stuyvesant+High+School&mode=transit&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"
+    dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(origin, destination, mode)
+    dm_data = urllib2.urlopen(dm_url)
+    dm_get = dm_data.read()
+    dm_dict = json.loads(dm_get)
+    return dm_dict
+
+
+#print get_directions("42-25+247th+St,+Flushing,+NY+11363", "Stuyvesant+High+School", "transit")
