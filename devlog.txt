@@ -26,6 +26,9 @@ zhenZ -- 2016-12-04 22:53
 zhenZ -- 2016-12-04 23:37
 - Added updated design document
 
-wostlund -- 2016-12-05 20:45
+ostlundW -- 2016-12-05 20:45
 - Added form and new document with template details for those who are confused, the document is called templateInfo.txt
 - The form uses to path "/result" !!!
+
+zhenZ -- 2016-12-05 22:26
+- Added Google Distance Matrix, Geolocation and Geocoding API interaction
