@@ -56,4 +56,9 @@ zhenZ -- 2016-12-06 22:15
 venderbushW -- 2016-12-06 23:55
 - Added getWeatherDict, culminating weather function for DarkSkyAPI
 - Updated DarkSky framework to conserve API calls on mass data requests
-- Bugfixes regarding API return inconsistencies 
+- Bugfixes regarding API return inconsistencies
+
+luB -- 2016-12-07 1:04
+- Added test HTML page for Google's Embed Maps API
+- Finished implementing Google's Embed Maps
+

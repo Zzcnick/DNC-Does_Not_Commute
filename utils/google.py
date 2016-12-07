@@ -86,18 +86,21 @@ def dm_dist(lat1, lng1, lat2, lng2):
 
 def get_directions(origin, destination, mode):
 #    dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=42-25+247th+St,+Flushing,+NY+11363&destination=Stuyvesant+High+School&mode=transit&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"
-    dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(origin, destination, mode)
+    new_origin = webstring(origin)
+    new_destination = webstring(destination)
+    dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination, mode)
+    print dm_url
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
     return dm_dict
 
-def get_map_link(origin, desination, mode):
+def get_map_link(origin, destination, mode):
     new_origin = webstring(origin)
-    new_destination = webstring(desination)
+    new_destination = webstring(destination)
     base_url = "https://maps.google.com/maps/embed/v1/directions?mode=%s&origin=%s&destination=%s&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw"%(mode, new_origin, new_destination)
     return base_url
 
 
-#print get_directions("42-25+247th+St,+Flushing,+NY+11363", "Stuyvesant+High+School", "transit")
+print get_directions("42-25 247th St, Flushing, NY 11363", "Stuyvesant High School", "transit")
 #print webstring("Stuyvesant High School")
