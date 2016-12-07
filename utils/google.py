@@ -92,7 +92,12 @@ def get_directions(origin, destination, mode):
     dm_dict = json.loads(dm_get)
     return dm_dict
 
+def get_map_link(origin, desination, mode):
+    new_origin = webstring(origin)
+    new_destination = webstring(desination)
+    base_url = "https://maps.google.com/maps/embed/v1/directions?mode=%s&origin=%s&destination=%s&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw"%(mode, new_origin, new_destination)
+    return base_url
+
 
 #print get_directions("42-25+247th+St,+Flushing,+NY+11363", "Stuyvesant+High+School", "transit")
 #print webstring("Stuyvesant High School")
-#https://maps.google.com/maps/embed/v1/directions?origin=%22Stuyvesant+High+School&destination=42-25+247th+St,+Flushing,+NY+11363&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw
