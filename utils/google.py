@@ -94,3 +94,5 @@ def get_directions(origin, destination, mode):
 
 
 #print get_directions("42-25+247th+St,+Flushing,+NY+11363", "Stuyvesant+High+School", "transit")
+#print webstring("Stuyvesant High School")
+#"https://www.google.com/maps/embed/v1/directions?key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY&origin=42-25+247th+St,+Flushing,+NY+11363&destination=Stuyvesant+High+School"
