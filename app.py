@@ -31,13 +31,14 @@ def results():
 	destinationCoordinates = google.gc_latlng(destination)
 
 	# Transport Mode
-	transport = request.form['transportMode']
+	transport = str(request.form['transportMode'])
+        print transport
 	
 	# ============= DATA RETRIEVAL ==============
 	# ETA
 	eta = google.dm_eta(currentCoordinates[0], currentCoordinates[1],
-		destinationCoordinates[0], destinationCoordinates[1])
-	eta = int(eta) / 60
+		            destinationCoordinates[0], destinationCoordinates[1],
+                            transport)
 
 	# Weather
 	currentWeather = darksky.getWeatherDict(currentCoordinates[0], currentCoordinates[1], 0)

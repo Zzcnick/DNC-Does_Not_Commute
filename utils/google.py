@@ -58,28 +58,35 @@ def gc_latlng(adr):
 # ================================================
 #                Distance Matrix
 # ================================================
-def call_dm(lat1, lng1, lat2, lng2):
+def call_dm(lat1, lng1, lat2, lng2, mode=None):
     add1_raw = gc_address(lat1,lng1)
     add1 = webstring(add1_raw)
     add2_raw = gc_address(lat2,lng2)
     add2 = webstring(add2_raw)
-    dm_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=%s&destinations=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add1,add2)
+    print lat1, lng1, lat2, lng2
+    tmode = ""
+    if mode is not None:
+        tmode = mode
+    dm_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=%s&destinations=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add1,add2,tmode)
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
     return dm_dict
 
-def dm_eta(lat1, lng1, lat2, lng2):
-    dm_dict = call_dm(lat1, lng1, lat2, lng2)
-    return dm_dict['rows'][0]['elements'][0]['duration']['value']
+def dm_eta(lat1, lng1, lat2, lng2, mode=None):
+    if mode is None:
+        dm_dict = call_dm(lat1, lng1, lat2, lng2) # Perhaps Remove In Future
+    else:
+        dm_dict = call_dm(lat1, lng1, lat2, lng2, mode)
+    return int(dm_dict['rows'][0]['elements'][0]['duration']['value']) / 60
 
-def dm_dist(lat1, lng1, lat2, lng2):
+def dm_dist(lat1, lng1, lat2, lng2, mode=None):
     dm_dict = call_dm(lat1, lng1, lat2, lng2)
     return dm_dict['rows'][0]['elements'][0]['distance']['value']
 
-# d1 = gl_location()
-# d2 = ["40.7925920","-73.8465270"]
-# print "Estimated Time: ", dm_eta(d1[0],d1[1],d2[0],d2[1])
+d1 = gl_location()
+d2 = ["40.7925920","-73.8465270"]
+print "Estimated Time: ", dm_eta(d1[0],d1[1],d2[0],d2[1],"walking")
 # print "Distance: ", dm_dist(d1[0],d1[1],d2[0],d2[1])
 
 # ================================================
