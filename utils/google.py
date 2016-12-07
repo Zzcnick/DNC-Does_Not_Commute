@@ -51,7 +51,7 @@ def gc_latlng(adr):
     return [gc_dict['results'][0]['geometry']['location']['lat'],
             gc_dict['results'][0]['geometry']['location']['lng']]
 
-print gc_latlng("345 Chambers Street, NY 10282")
+# print gc_latlng("345 Chambers Street, NY 10282")
 
 # ================================================
 #                Distance Matrix
@@ -61,7 +61,7 @@ def call_dm(lat1, lng1, lat2, lng2):
     add1 = webstring(add1_raw)
     add2_raw = gc_address(lat2,lng2)
     add2 = webstring(add2_raw)
-    dm_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=%s&destinations=%s,NY&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add1,add2)
+    dm_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=%s&destinations=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add1,add2)
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
@@ -69,11 +69,11 @@ def call_dm(lat1, lng1, lat2, lng2):
 
 def dm_eta(lat1, lng1, lat2, lng2):
     dm_dict = call_dm(lat1, lng1, lat2, lng2)
-    return dm_dict['rows'][0]['elements'][0]['duration']['text']
+    return dm_dict['rows'][0]['elements'][0]['duration']['value']
 
 def dm_dist(lat1, lng1, lat2, lng2):
     dm_dict = call_dm(lat1, lng1, lat2, lng2)
-    return dm_dict['rows'][0]['elements'][0]['distance']['text']
+    return dm_dict['rows'][0]['elements'][0]['distance']['value']
 
 # d1 = gl_location()
 # d2 = ["40.7925920","-73.8465270"]
