@@ -7,6 +7,7 @@ jonalfD -- 2016-12-04 14:32
 
 API Keys:
 	Google: AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY
+	    Google Embed Maps API: AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw
 	DarkSky: 8312fc029e352953b9e6ed8ca0202eb9
 	MTA: f2e0602012868a493297afd1b44ac01a
 

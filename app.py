@@ -55,6 +55,11 @@ def about():
     return render_template("main.html",
                            title="About")
 
+@app.route("/test/", methods=["GET"])
+def test():
+    return render_template("testMap.html", embed= "https://maps.google.com/maps/embed/v1/directions?mode=transit&origin=%22Stuyvesant+High+School&destination=42-25+247th+St,+Flushing,+NY+11363&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw")
+
+
 # Running The App
 if __name__ == "__main__":
     app.debug = True
