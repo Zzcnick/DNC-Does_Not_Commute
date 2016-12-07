@@ -46,15 +46,19 @@ def closestHourOffset(minoffset):
 		minutes = 0
 	return hours
 
-def getRainChance(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getRainChance(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
-	minutely = reqdict["minutely"]
-	minutelydata = minutely["data"]
-	if (offset > 0 and offset < 61):
+	if (offset > 0 and offset < 61 and "minutely" in reqdict):
+		minutely = reqdict["minutely"]
+		minutelydata = minutely["data"]
 		raindata = minutelydata[offset]
 		time = raindata["time"]
 		rainchance = raindata["precipProbability"]
@@ -69,11 +73,15 @@ def getRainChance(x, y, offset):
 		rainchance = currently["precipProbability"]
 		return rainchance * 100
 
-def getWind(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getWind(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
 	hourly = reqdict["hourly"]
 	closestHour = closestHourOffset(offset)
@@ -83,11 +91,15 @@ def getWind(x, y, offset):
 	wind = hourlydata["windSpeed"]
 	return wind
 
-def getStatus(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getStatus(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
 	hourly = reqdict["hourly"]
 	closestHour = closestHourOffset(offset)
@@ -97,11 +109,15 @@ def getStatus(x, y, offset):
 	status = hourlydata["summary"]
 	return status
 
-def getTemp(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getTemp(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
 	hourly = reqdict["hourly"]
 	closestHour = closestHourOffset(offset)
@@ -111,14 +127,17 @@ def getTemp(x, y, offset):
 	temp = hourlydata["temperature"]
 	return temp
 
-def getFeel(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getFeel(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
 	hourly = reqdict["hourly"]
-	url = genURL(x, y)
 	closestHour = closestHourOffset(offset)
 	hourlydata = hourly["data"][closestHour]
 	if (offset == 0):
@@ -126,11 +145,15 @@ def getFeel(x, y, offset):
 	feel = hourlydata["apparentTemperature"]
 	return feel
 
-def getIntensity(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getIntensity(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
 	hourly = reqdict["hourly"]
 	closestHour = closestHourOffset(offset)
@@ -140,58 +163,77 @@ def getIntensity(x, y, offset):
 	intensity = hourlydata["precipIntensity"]
 	return intensity
 
-def getSunset(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
-	daily = reqdict["daily"]
-	dailydata = daily["data"][offset]
-	return dailydata["sunsetTime"]
-
-def getSunrise(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
-	daily = reqdict["daily"]
-	dailydata = daily["data"][offset]
-	return dailydata["sunriseTime"]
-
-def getPrecipType(x, y, offset):
-	if (getIntensity(x, y, offset) == 0):
-		return "none"
+def getSunset(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
 	else:
 		url = genURL(x, y)
 		curr = urllib2.urlopen(url)
 		req = curr.read()
 		reqdict = json.loads(req)
-		currently = reqdict["currently"]
+	daily = reqdict["daily"]
+	dailydata = daily["data"][offset]
+	if ("sunsetTime" in dailydata):
+		return dailydata["sunsetTime"]
+	else:
+		return 0
+
+def getSunrise(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
+	daily = reqdict["daily"]
+	dailydata = daily["data"][offset]
+	if ("sunriseTime" in dailydata):
+		return dailydata["sunriseTime"]
+	else:
+		return 0
+
+def getPrecipType(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
+	if (getIntensity(x, y, offset, reqdict) == 0):
+		return "none"
+	currently = reqdict["currently"]
+	if (offset > 0 and offset < 61 and "minutely" in reqdict):
 		minutely = reqdict["minutely"]
 		minutelydata = minutely["data"]
-		if (offset > 0 and offset < 61):
-			raindata = minutelydata[offset]
-			time = raindata["time"]
-			precip = raindata["precipType"]
-			return precip
-		if (offset > 60):
-			hourly = reqdict["hourly"]
-			closestHour = closestHourOffset(offset)
-			hourlydata = hourly["data"][closestHour]
-			precip = hourlydata["precipType"]
-			return precip
-		else:
-			precip = currently["precipType"]
-			return precip
+		raindata = minutelydata[offset]
+		time = raindata["time"]
+		precip = raindata["precipType"]
+		return precip
+	if (offset > 60):
+		hourly = reqdict["hourly"]
+		closestHour = closestHourOffset(offset)
+		hourlydata = hourly["data"][closestHour]
+		precip = hourlydata["precipType"]
+		return precip
+	else:
+		precip = currently["precipType"]
+		return precip
 
-def getIcon(x, y, offset):
-	url = genURL(x, y)
-	curr = urllib2.urlopen(url)
-	req = curr.read()
-	reqdict = json.loads(req)
+def getIcon(x, y, offset, *data):
+	if data:
+		reqdict = data
+		reqdict = data[0]
+	else:
+		url = genURL(x, y)
+		curr = urllib2.urlopen(url)
+		req = curr.read()
+		reqdict = json.loads(req)
 	currently = reqdict["currently"]
-	minutely = reqdict["minutely"]
-	minutelydata = minutely["data"]
 	if (offset == 0):
 		icon = currently["icon"]
 		return icon
@@ -202,6 +244,23 @@ def getIcon(x, y, offset):
 		icon = hourlydata["icon"]
 		return icon
 
+def getWeatherDict(x, y, offset):
+	url = genURL(x, y)
+	curr = urllib2.urlopen(url)
+	req = curr.read()
+	reqdict = json.loads(req)
+	retdict = {}
+	retdict["icon"] = getIcon(x, y, offset, reqdict)
+	retdict["precipType"] = getPrecipType(x, y, offset, reqdict)
+	retdict["sunrise"] = getSunrise(x, y, offset, reqdict)
+	retdict["sunset"] = getSunset(x, y, offset, reqdict)
+	retdict["intensity"] = getIntensity(x, y, offset, reqdict)
+	retdict["feel"] = getFeel(x, y, offset, reqdict)
+	retdict["rainChance"] = getRainChance(x, y, offset, reqdict)
+	retdict["wind"] = getWind(x, y, offset, reqdict)
+	retdict["status"] = getStatus(x, y, offset, reqdict)
+	retdict["temp"] = getTemp(x, y, offset, reqdict)
+	return retdict
 
 
 
