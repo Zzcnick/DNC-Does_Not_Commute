@@ -61,4 +61,5 @@ venderbushW -- 2016-12-06 23:55
 luB -- 2016-12-07 1:04
 - Added test HTML page for Google's Embed Maps API
 - Finished implementing Google's Embed Maps
-
+- Finished breaking down Directions Response
+- Awaiting which data fields are needed for extraction
