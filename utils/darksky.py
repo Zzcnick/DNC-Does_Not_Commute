@@ -46,6 +46,14 @@ def closestHourOffset(minoffset):
 		minutes = 0
 	return hours
 
+def closestDayOffset(minoffset):
+	days = 0
+	while (minoffset >= 1440):
+		minoffset = minoffset - 1440
+		days += 1
+	return days
+
+
 def getRainChance(x, y, offset, *data):
 	if data:
 		reqdict = data
@@ -67,7 +75,7 @@ def getRainChance(x, y, offset, *data):
 		hourly = reqdict["hourly"]
 		closestHour = closestHourOffset(offset)
 		hourlydata = hourly["data"][closestHour]
-		precip = hourlydata["precipProbability"]
+		rainchance = hourlydata["precipProbability"]
 		return rainchance * 100
 	else:
 		rainchance = currently["precipProbability"]
@@ -252,8 +260,8 @@ def getWeatherDict(x, y, offset):
 	retdict = {}
 	retdict["icon"] = getIcon(x, y, offset, reqdict)
 	retdict["precipType"] = getPrecipType(x, y, offset, reqdict)
-	retdict["sunrise"] = getSunrise(x, y, offset, reqdict)
-	retdict["sunset"] = getSunset(x, y, offset, reqdict)
+	retdict["sunrise"] = getSunrise(x, y, closestDayOffset(offset), reqdict)
+	retdict["sunset"] = getSunset(x, y, closestDayOffset(offset), reqdict)
 	retdict["intensity"] = getIntensity(x, y, offset, reqdict)
 	retdict["feel"] = getFeel(x, y, offset, reqdict)
 	retdict["rainChance"] = getRainChance(x, y, offset, reqdict)
