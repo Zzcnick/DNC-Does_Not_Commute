@@ -42,10 +42,40 @@ def results():
 	# Weather
 	currentWeather = darksky.getWeatherDict(currentCoordinates[0], currentCoordinates[1], 0)
 	destinationWeather = darksky.getWeatherDict(destinationCoordinates[0], destinationCoordinates[1], eta)
-	#currentWeather = darksky.getStatus(currentCoordinates[0], currentCoordinates[1], eta)
-	#destinationWeather = darksky.getStatus(destinationCoordinates[0], destinationCoordinates[1], eta)
 
-	return str(currentCoordinates) + "<br>" + str(destinationCoordinates) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)
+	currentAddress = google.gc_address(currentCoordinates[0], currentCoordinates[1])
+	destinationAddress = google.gc_address(destinationCoordinates[0], destinationCoordinates[1])
+
+	print(google.get_map_link(currentAddress, destinationAddress))
+
+	return render_template("results.html",
+							title="Trip Results",
+							cstatus = currentWeather["status"],
+							ctemp = currentWeather["temp"],
+							cprecipType = currentWeather["precipType"],
+							cfeel = currentWeather["feel"],
+							crainChance = currentWeather["rainChance"],
+							cintensity = currentWeather["intensity"],
+							csunset = currentWeather["sunset"],
+							csunrise = currentWeather["sunrise"],
+							cwind = currentWeather["wind"],
+							cicon = currentWeather["icon"],
+							dstatus = destinationWeather["status"],
+							dtemp = destinationWeather["temp"],
+							dprecipType = destinationWeather["precipType"],
+							dfeel = destinationWeather["feel"],
+							drainChance = destinationWeather["rainChance"],
+							dintensity = destinationWeather["intensity"],
+							dsunset = destinationWeather["sunset"],
+							dsunrise = destinationWeather["sunrise"],
+							dwind = destinationWeather["wind"],
+							dicon = destinationWeather["icon"],
+							caddress = currentAddress,
+							daddress = destinationAddress,
+							maplink = google.get_map_link(currentAddress, destinationAddress) #should have a mode!!!
+							)
+
+	#return str(caddress) + "<br>" + str(daddress) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)
 # print(currentCoordinates)
 # print(destinationCoordinates)
 # return render_template("results.html",
