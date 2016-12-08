@@ -70,3 +70,4 @@ venderbushW -- 2016-12-07 2:30
 luB -- 2016-12-07 21:42
 - Finished function to get duration of trip
 - Finished function to get ETA
+- Finished function to get total distance

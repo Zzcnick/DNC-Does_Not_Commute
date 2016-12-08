@@ -93,14 +93,13 @@ print "Estimated Time: ", dm_eta(d1[0],d1[1],d2[0],d2[1],"walking")
 #                Directions API
 # ================================================
 
-def get_directions(origin, destination, mode = ""):
+def get_directions_dict(origin, destination, mode = ""):
     new_origin = webstring(origin)
     new_destination = webstring(destination)
     if mode == "":
         dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination)
     else:
         dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination, mode)
-    print dm_url
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
@@ -138,6 +137,11 @@ def get_ETA(dm_dict):
     arrival_time = dm_dict["routes"][0]["legs"][0]["arrival_time"]["text"]
     return arrival_time
 
-test_dict = get_directions("Little Neck", "Penn Station", "transit")
+def get_distance(dm_dict):
+    distance = dm_dict["routes"][0]["legs"][0]["distance"]["text"]
+    return distance
 
-print get_ETA(test_dict)
+
+
+test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
+
