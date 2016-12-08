@@ -93,7 +93,7 @@ print "Estimated Time: ", dm_eta(d1[0],d1[1],d2[0],d2[1],"walking")
 #                Directions API
 # ================================================
 
-def get_directions_dict(origin, destination, mode = ""):
+def get_directions_dict(origin, destination, mode):
     new_origin = webstring(origin)
     new_destination = webstring(destination)
     if mode == "":
@@ -141,7 +141,11 @@ def get_distance(dm_dict):
     distance = dm_dict["routes"][0]["legs"][0]["distance"]["text"]
     return distance
 
-
-
-test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
-
+def get_directions(dm_dict):
+    steps = dm_dict["routes"][0]["legs"][0]["steps"]
+    retStr = ""
+    for item in steps:
+        retStr += item["html_instructions"] + "\n"
+    return retStr
+#test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
+#print get_directions(test_dict)
