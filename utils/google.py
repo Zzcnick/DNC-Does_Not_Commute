@@ -105,20 +105,19 @@ def get_directions(origin, destination, mode = ""):
     dm_dict = json.loads(dm_get)
     return dm_dict
 
-def get_map_link(origin, destination, mode = ""):
+def get_map_link(origin, destination, mode):
     new_origin = webstring(origin)
     new_destination = webstring(destination)
     base_url = "https://maps.google.com/maps/embed/v1/directions?mode=%s&origin=%s&destination=%s&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw"%(mode, new_origin, new_destination)
     return base_url
 
-#<<<<<<< HEAD
 def get_trip_duration(dm_dict):
     arrival_time = dm_dict["routes"][0]["legs"][0]["arrival_time"]["text"]
     departure_time = dm_dict["routes"][0]["legs"][0]["departure_time"]["text"]
+    return [arrival_time, departure_time]
 
 test_dict = get_directions("Little Neck", "Penn Station", "transit")
-get_trip_duration(test_dict)
-#=======
+print get_trip_duration(test_dict)
+
 #print get_directions("Little Neck", "Penn Station", "transit")["routes"][0]["legs"][0]["arrival_time"]
-#>>>>>>> c8a135b2b56cfb947e5684efa5ea21367c9458b1
 #print webstring("Stuyvesant High School")
