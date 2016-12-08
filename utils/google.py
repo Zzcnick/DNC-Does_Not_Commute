@@ -114,7 +114,25 @@ def get_map_link(origin, destination, mode):
 def get_trip_duration(dm_dict):
     arrival_time = dm_dict["routes"][0]["legs"][0]["arrival_time"]["text"]
     departure_time = dm_dict["routes"][0]["legs"][0]["departure_time"]["text"]
-    return [arrival_time, departure_time]
+    indexOfArrival = arrival_time.find(":")
+    indexOfDeparture = departure_time.find(":")
+    hour_arrival = int(arrival_time[0:indexOfArrival])
+    hour_departure = int(departure_time[0:indexOfDeparture])
+    if hour_arrival == 12 and arrival_time[-2] == 'a':
+        hour_arrival = 0
+    elif arrival_time[-2]== 'p' and arrival_time[0:2] != 12:
+        hour_arrival += 12
+    if hour_departure == 12 and departure_time[-2] == 'a':
+        hour_departure = 0
+    elif departure_time[-2] == 'p':
+        hour_departure += 12
+    arrival_minutes = (hour_arrival * 60) + int(arrival_time[indexOfArrival + 1: indexOfArrival + 3])
+    departure_minutes = (hour_departure * 60) + int(departure_time[indexOfDeparture + 1: indexOfDeparture + 3])
+    if (arrival_minutes - departure_minutes) >= 0:
+        return arrival_minutes - departure_minutes
+    elif (arrival_minutes - departure_minutes) < 0:
+        return (arrival_minutes + 1440) - departure_minutes
+
 
 test_dict = get_directions("Little Neck", "Penn Station", "transit")
 print get_trip_duration(test_dict)
