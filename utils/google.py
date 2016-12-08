@@ -100,6 +100,7 @@ def get_directions(origin, destination, mode = ""):
         dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination)
     else:
         dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination, mode)
+    print dm_url
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
@@ -133,9 +134,10 @@ def get_trip_duration(dm_dict):
     elif (arrival_minutes - departure_minutes) < 0:
         return (arrival_minutes + 1440) - departure_minutes
 
+def get_ETA(dm_dict):
+    arrival_time = dm_dict["routes"][0]["legs"][0]["arrival_time"]["text"]
+    return arrival_time
 
 test_dict = get_directions("Little Neck", "Penn Station", "transit")
-print get_trip_duration(test_dict)
 
-#print get_directions("Little Neck", "Penn Station", "transit")["routes"][0]["legs"][0]["arrival_time"]
-#print webstring("Stuyvesant High School")
+print get_ETA(test_dict)
