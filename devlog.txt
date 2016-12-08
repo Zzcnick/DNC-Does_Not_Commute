@@ -63,3 +63,6 @@ luB -- 2016-12-07 1:04
 - Finished implementing Google's Embed Maps
 - Finished breaking down Directions Response
 - Awaiting which data fields are needed for extraction
+
+venderbushW -- 2016-12-07 2:30
+- Passed info through flask app
