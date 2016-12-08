@@ -1,4 +1,4 @@
-import json, urllib2, requests
+import json, urllib, urllib2
 
 # API Key: AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY
 
@@ -13,8 +13,10 @@ def webstring(adr):
 # ================================================
 def call_gl():
     gl_url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"
-    gl_data = requests.post(gl_url)
-    gl_dict = json.loads(gl_data.text)
+    d = urllib.urlencode( {} )
+    gl_data = urllib2.urlopen(url=gl_url, data=d)
+    gl_get = gl_data.read()
+    gl_dict = json.loads(gl_get)
     return gl_dict
 
 def gl_location():
@@ -36,7 +38,7 @@ def call_gc_ll(lat, lng):
 
 def call_gc_ad(adr):
     add = webstring(adr)
-    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add)
+    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s,NY&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add)
     gc_data = urllib2.urlopen(gc_url)
     gc_get = gc_data.read()
     gc_dict = json.loads(gc_get)
@@ -102,10 +104,14 @@ def get_map_link(origin, destination, mode = ""):
     base_url = "https://maps.google.com/maps/embed/v1/directions?mode=%s&origin=%s&destination=%s&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw"%(mode, new_origin, new_destination)
     return base_url
 
+<<<<<<< HEAD
 def get_trip_duration(dm_dict):
     arrival_time = dm_dict["routes"][0]["legs"][0]["arrival_time"]["text"]
     departure_time = dm_dict["routes"][0]["legs"][0]["departure_time"]["text"]
 
 test_dict = get_directions("Little Neck", "Penn Station", "transit")
 get_trip_duration(test_dict)
+=======
+#print get_directions("Little Neck", "Penn Station", "transit")["routes"][0]["legs"][0]["arrival_time"]
+>>>>>>> c8a135b2b56cfb947e5684efa5ea21367c9458b1
 #print webstring("Stuyvesant High School")
