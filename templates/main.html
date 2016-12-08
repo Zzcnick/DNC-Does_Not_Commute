@@ -10,14 +10,19 @@
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
   <style>
+    
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
     margin-bottom: 0;
     border-radius: 0;
     }
+      
+    .contain{
+      text-align: center;
+      }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {height: 3000px;}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -85,15 +90,44 @@
       </p>
       <hr>
       <h3>Fill in the Followin Infomation</h3> <!-- Form will look like this + nicer and with js-->
-          <form action="/result" method="POST">
-            <input type="text" name="location" placeholder="Current Location"><br><br>
-            <input type="text" name="destination" placeholder="Destination"> <br><br>
-              Mode of Transportation:<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="bus"> Bus<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="driving"> Car<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="train"> Train<br>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="transportMode" value="walking"> Walking
-              <br><br>
+          <form class="centered" action="/result" method="POST">
+              <br>
+              <h5>Enter Current Location</h5>
+              <div class="contain">
+            <input type="text" name="location" placeholder="Current Location">
+            <div>
+              <img src="../images/33.png" height="50%" width="50%">
+            </div>
+              </div>
+              <hr>
+              <h5>Enter Destination</h5>
+              <div class="contain">
+            <input type="text" name="destination" placeholder="Destination" required>
+                  <div>
+              <img src="../images/destination.png" height="50%" width="50%">
+            </div>
+              </div>
+              <hr>
+              <h5>Mode of Transportation</h5>
+              <div class="contain">
+            <input type="radio" name="transportMode" value="bus"> Bus<br>
+            <input type="radio" name="transportMode" value="driving"> Car<br>
+            <input type="radio" name="transportMode" value="train"> Train<br>
+            <input type="radio" name="transportMode" value="walking"> Walking
+                <div>
+              <img src="../images/transportation.png" height="75%" width="75%">
+            </div>
+              </div>
+              <hr>
+              <h5>Intended Time of Arrival</h5>
+              <div class="contain">
+                <input type="time">
+                <div>
+                    <img src="../images/42.png" height="65%" width="65%">
+                  </div>
+              </div>
+              <hr>
+              
             <input type="submit">
         </form>
         <br>
@@ -108,9 +142,10 @@
       </div>
     </div>
   </div>
+    
 </div>
-
-<footer class="container-fluid text-center">
+    
+    <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
 
