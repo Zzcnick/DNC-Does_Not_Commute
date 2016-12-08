@@ -1,6 +1,7 @@
 import json, urllib, urllib2
 
-# API Key: AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY
+key_gen = open("../keys.txt", "r").read().strip().split("\n")[0]
+key_emb = open("../keys.txt", "r").read().strip().split("\n")[1]
 
 # ================================================
 #               Google API Helpers
@@ -12,7 +13,7 @@ def webstring(adr):
 #                   Geolocation
 # ================================================
 def call_gl():
-    gl_url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"
+    gl_url = "https://www.googleapis.com/geolocation/v1/geolocate?key=%s"%(key_gen)
     d = urllib.urlencode( {} )
     gl_data = urllib2.urlopen(url=gl_url, data=d)
     gl_get = gl_data.read()
@@ -30,7 +31,7 @@ def gl_location():
 #                   Geocoding
 # ================================================
 def call_gc_ll(lat, lng): 
-    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(lat,lng)
+    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&key=%s"%(lat,lng,key_gen)
     gc_data = urllib2.urlopen(gc_url)
     gc_get = gc_data.read()
     gc_dict = json.loads(gc_get)
@@ -38,7 +39,7 @@ def call_gc_ll(lat, lng):
 
 def call_gc_ad(adr):
     add = webstring(adr)
-    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s,NY&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add)
+    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s,NY&key=%s"%(add,key_gen)
     gc_data = urllib2.urlopen(gc_url)
     gc_get = gc_data.read()
     gc_dict = json.loads(gc_get)
@@ -67,7 +68,7 @@ def call_dm(lat1, lng1, lat2, lng2, mode=None):
     tmode = ""
     if mode is not None:
         tmode = mode
-    dm_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=%s&destinations=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(add1,add2,tmode)
+    dm_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=%s&destinations=%s&mode=%s&key=%s"%(add1,add2,tmode,key_gen)
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
@@ -84,9 +85,9 @@ def dm_dist(lat1, lng1, lat2, lng2, mode=None):
     dm_dict = call_dm(lat1, lng1, lat2, lng2)
     return dm_dict['rows'][0]['elements'][0]['distance']['value']
 
-d1 = gl_location()
-d2 = ["40.7925920","-73.8465270"]
-print "Estimated Time: ", dm_eta(d1[0],d1[1],d2[0],d2[1],"walking")
+# d1 = gl_location()
+# d2 = ["40.7925920","-73.8465270"]
+# print "Estimated Time: ", dm_eta(d1[0],d1[1],d2[0],d2[1],"walking")
 # print "Distance: ", dm_dist(d1[0],d1[1],d2[0],d2[1])
 
 # ================================================
@@ -97,9 +98,9 @@ def get_directions_dict(origin, destination, mode):
     new_origin = webstring(origin)
     new_destination = webstring(destination)
     if mode == "":
-        dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination)
+        dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&key=%s"%(new_origin, new_destination, key_gen)
     else:
-        dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY"%(new_origin, new_destination, mode)
+        dm_url = "https://maps.googleapis.com/maps/api/directions/json?origin=%s&destination=%s&mode=%s&key=%s"%(new_origin, new_destination, mode, key_gen)
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
@@ -108,7 +109,7 @@ def get_directions_dict(origin, destination, mode):
 def get_map_link(origin, destination, mode):
     new_origin = webstring(origin)
     new_destination = webstring(destination)
-    base_url = "https://maps.google.com/maps/embed/v1/directions?mode=%s&origin=%s&destination=%s&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw"%(mode, new_origin, new_destination)
+    base_url = "https://maps.google.com/maps/embed/v1/directions?mode=%s&origin=%s&destination=%s&key=%s"%(mode, new_origin, new_destination, key_emb)
     return base_url
 
 def get_trip_duration(dm_dict):
@@ -147,5 +148,6 @@ def get_directions(dm_dict):
     for item in steps:
         retStr += item["html_instructions"] + "\n"
     return retStr
+
 #test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
 #print get_directions(test_dict)

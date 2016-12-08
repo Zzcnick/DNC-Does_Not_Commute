@@ -61,6 +61,9 @@ luB -- 2016-12-07 1:04
 venderbushW -- 2016-12-07 2:30
 - Passed info through flask app
 
+zhenZ -- 2016-12-15 15:47
+- Added parsing for different input times to calculate ETA
+
 luB -- 2016-12-07 21:42
 - Finished function to get duration of trip
 - Finished function to get ETA
@@ -69,3 +72,7 @@ luB -- 2016-12-07 21:42
 
 venderbushW -- 2016-12-07 22:31
 - Added logo
+
+zhenZ -- 2016-12-08 14:47
+- Remove mta.py
+- Integrate API keys through file to prevent peeping

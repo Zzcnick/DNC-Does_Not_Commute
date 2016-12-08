@@ -3,8 +3,6 @@
 
 import json, urllib2, datetime
 
-# API Key: 8312fc029e352953b9e6ed8ca0202eb9Y
-
 # ================================================
 #                DarkSky API Calls
 # ================================================
@@ -13,7 +11,10 @@ import json, urllib2, datetime
 #		(max minute offset seems to be 2910)
 # ================================================
 
+APIkey = open("../keys.txt", "r").read().strip().split("\n")[2]
 masterURL = "https://api.darksky.net/forecast/" + APIkey + "/"
+
+print masterURL
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 #############
