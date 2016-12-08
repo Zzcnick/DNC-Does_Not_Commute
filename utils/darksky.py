@@ -13,7 +13,7 @@ import json, urllib2, datetime
 #		(max minute offset seems to be 2910)
 # ================================================
 
-masterURL = "https://api.darksky.net/forecast/8312fc029e352953b9e6ed8ca0202eb9/"
+masterURL = "https://api.darksky.net/forecast/" + APIkey + "/"
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 #############
