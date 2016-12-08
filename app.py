@@ -32,7 +32,6 @@ def results():
 
 	# Transport Mode
 	transport = str(request.form['transportMode'])
-        print transport
 	
 	# ============= DATA RETRIEVAL ==============
 	# ETA
@@ -46,8 +45,6 @@ def results():
 
 	currentAddress = google.gc_address(currentCoordinates[0], currentCoordinates[1])
 	destinationAddress = google.gc_address(destinationCoordinates[0], destinationCoordinates[1])
-
-	print(google.get_map_link(currentAddress, destinationAddress))
 
 	return render_template("results.html",
 							title="Trip Results",
@@ -73,7 +70,7 @@ def results():
 							dicon = destinationWeather["icon"],
 							caddress = currentAddress,
 							daddress = destinationAddress,
-							maplink = google.get_map_link(currentAddress, destinationAddress) #should have a mode!!!
+							maplink = google.get_map_link(currentAddress, destinationAddress, transport)
 							)
 
 	#return str(caddress) + "<br>" + str(daddress) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)

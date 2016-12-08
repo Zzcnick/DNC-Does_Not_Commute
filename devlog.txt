@@ -5,12 +5,6 @@ Example log:
 jonalfD -- 2016-12-04 14:32
 <ENTRY>
 
-API Keys:
-	Google: AIzaSyCnkOEu9Xyc2O3sNqzmTzCNub6e_kSoUeY
-	    Google Embed Maps API: AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw
-	DarkSky: 8312fc029e352953b9e6ed8ca0202eb9
-	MTA: f2e0602012868a493297afd1b44ac01a
-
 ——————————
 
 venderbushW -- 2016-12-04 12:46
@@ -72,3 +66,6 @@ luB -- 2016-12-07 21:42
 - Finished function to get ETA
 - Finished function to get total distance
 - Got basic directions working
+
+venderbushW -- 2016-12-07 22:31
+- Added logo
