@@ -66,3 +66,6 @@ luB -- 2016-12-07 1:04
 
 venderbushW -- 2016-12-07 2:30
 - Passed info through flask app
+
+luB -- 2016-12-07 21:42
+- Finished function to get duration of trip
