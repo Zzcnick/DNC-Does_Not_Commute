@@ -11,10 +11,8 @@ import json, urllib2, datetime
 #		(max minute offset seems to be 2910)
 # ================================================
 
-APIkey = open("../keys.txt", "r").read().strip().split("\n")[2]
+APIkey = open("keys.txt", "r").read().strip().split("\n")[2]
 masterURL = "https://api.darksky.net/forecast/" + APIkey + "/"
-
-print masterURL
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 #############

@@ -1,5 +1,5 @@
 from flask import Flask, url_for, redirect, render_template, session, request
-from utils import mta, google, darksky
+from utils import google, darksky
 
 app = Flask(__name__)
 app.secret_key = "Welcome to the DNC!!!!!!!!"

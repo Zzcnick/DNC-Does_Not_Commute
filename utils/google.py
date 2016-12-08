@@ -1,7 +1,7 @@
 import json, urllib, urllib2
 
-key_gen = open("../keys.txt", "r").read().strip().split("\n")[0]
-key_emb = open("../keys.txt", "r").read().strip().split("\n")[1]
+key_gen = open("keys.txt", "r").read().strip().split("\n")[0]
+key_emb = open("keys.txt", "r").read().strip().split("\n")[1]
 
 # ================================================
 #               Google API Helpers
