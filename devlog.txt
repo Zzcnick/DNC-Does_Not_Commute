@@ -71,8 +71,11 @@ luB -- 2016-12-07 21:42
 - Got basic directions working
 
 venderbushW -- 2016-12-07 22:31
-- Added logo
+- Added logo to github
 
 zhenZ -- 2016-12-08 14:47
 - Remove mta.py
 - Integrate API keys through file to prevent peeping
+
+venderbushW -- 2016-12-08 14:50
+- Added imgs
