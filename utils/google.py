@@ -39,7 +39,7 @@ def call_gc_ll(lat, lng):
 
 def call_gc_ad(adr):
     add = webstring(adr)
-    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s,NY&key=%s"%(add,key_gen)
+    gc_url = "https://maps.googleapis.com/maps/api/geocode/json?address=%s,NY&components=country:US&key=%s"%(add,key_gen)
     gc_data = urllib2.urlopen(gc_url)
     gc_get = gc_data.read()
     gc_dict = json.loads(gc_get)
