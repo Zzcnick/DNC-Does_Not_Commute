@@ -79,3 +79,7 @@ zhenZ -- 2016-12-08 14:47
 
 venderbushW -- 2016-12-08 14:50
 - Added imgs
+
+venderbushW -- 2016-12-11 14:23
+- Did some styling on the homepage
+- Broke the navbar, the icon is too large which offsets the other buttons
