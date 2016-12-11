@@ -83,3 +83,7 @@ venderbushW -- 2016-12-08 14:50
 venderbushW -- 2016-12-11 14:23
 - Did some styling on the homepage
 - Broke the navbar, the icon is too large which offsets the other buttons
+
+venderbushW -- 2016-12-11 15:01
+- Did more styling
+- Finished About Page and implemented it

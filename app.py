@@ -82,8 +82,8 @@ def results():
 
 @app.route("/about/", methods=["POST","GET"])
 def about():
-	return render_template("main.html",
-							title="About")
+	return render_template("about.html",
+							title="About DNC")
 
 @app.route("/test/", methods=["GET"])
 def test():

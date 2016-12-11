@@ -101,12 +101,12 @@ body {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="#"><img src="static/img/logo.png" height="100%" width="25%"></a>
+      <a href="/"><img src="../static/img/logo.png" height="100%" width="25%"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="#">About</a></li>
     </div>
   </div>
 </nav>
@@ -116,64 +116,42 @@ body {
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left main"> 
-      <center><h1>{{title}}</h1></center>
+      <center><h1>About</h1></center>
+      <hr>
+      <center><img src="../static/img/logo.png" height="5%" width="40%"></center>
+      <div id="explanation">
+      <center><h2> What is <b>DoesNotCommute?</b> </h2></center>
+      <p>
+      <b>DoesNotCommute</b> is an all in one commuter app made by New Yorkers, for New Yorkers.
+      </p>
+      <p>
+      Using information from <b>Google Maps</b> and <b>DarkSky</b>, we provide users with reliable, up-to-date information and statistics regarding their commute. We provide it all: from optimal routes, to delays, to alerts, to weather. 
+      </p>
+      <p>
+      Whatever might get in your way from point A to point B, we'll give you the latest. We've got you covered!
+      </p>
+      <p>
+      You'll never be late again with the help of our fast and efficient app!
+      </p>
+      </div>
+      <div>
+      <hr>
+      <center><h2> How Does It Work?</b> </h2></center>
+      <p>
+      <b>DoesNotCommute</b> is designed with you in mind! We that when you're on the go, you don't have time for extra, complicated things. That's why we've designed our interface to be user-friendly, with simplicity in mind.
+      </p>
+      <p>
+      To begin, visit our homepage. Then enter the requested information when prompted, including your desired location, desired time of arrival, and transportation method.
+      </p>
+      <p>
+      Once you're done, we'll show you the best possible routes, as well as information about the weather and other annoying things that might get in your way on the way there!
+      </p>
+      <p>
+      If you travel with us, you'll make it there on time, every time. That's our promise!
+      </p>
       <hr>
 
-          <form class="centered" action="/result" method="POST">
-              <br>
-              
-              <div id = "option1" class="contain" style="display:inherit">
-                  <h5>Where are you now?</h5>
-                  <img src="static/img/33.png" height="10%" width="10%">
-            <input type="text" name="location" placeholder="Current Location">
-              
-                  <div onclick="fnctn('option1', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
-            </div>
-              <div  id = "option2" class="contain">
-                  <h5>Where would you like to go?</h5>
-                   <img src="static/img/destination.png" height="10%" width="10%">
-            <input type="text" name="destination" placeholder="Destination" required>
-
-                  <div>
-                      <div onclick="fnctn('option2', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
-            </div>
-              </div>
-              <div id = "option3"  class="contain">
-                                <h5>How would you like to get there?</h5>
-            <div class="row">
-              <div class="col-xs-12">
-            <img src="static/img/transportation.png" height="25%" width="25%">
-              </div>
-              <div class="col-xs-12">
-              <div class="col-xs-3">
-              <input type="radio" name="transportMode" value="car"> Car
-              </div>
-              <div class="col-xs-3">
-            <input type="radio" name="transportMode" value="transit"> Public Transit <br>
-            </div>
-            <div class="col-xs-3">
-            <input type="radio" name="transportMode" value="walking"> Walking
-            </div>
-            <div class="col-xs-3">
-            <input type="radio" name="transportMode" value="bicycling"> Biking
-            </div>
-            </div>
-          
-              
-                    <div onclick="fnctn('option3', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
-            </div>
-              </div>
-              <div  id = "option4" class="contain">
-                  <h5>When would you like to arrive?</h5>
-                   <img src="static/img/42.png" height="10%" width="10%">
-                <input type="time" name="arrivalTime">
-                <div>
-                <input type="submit" name="Commute" class="btn btn-primary" >
-                </div>
-              </div>
-        </form>
-        <br>
-        <br>
+      </div>
     </div>
     <div class="col-sm-2 sidenav">
     </div>
