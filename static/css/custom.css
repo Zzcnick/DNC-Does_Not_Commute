@@ -1,0 +1,44 @@
+body{
+	background-color: #ECE4B7;
+}
+
+.btn-primary{
+	background-color: #872321;
+	border-color: #6B0707;
+}
+.btn-primary:hover{
+	background-color: #6B0707;
+	border-color: #872321;
+}
+
+a {
+	color: #872321;
+}
+
+a:hover {
+	color: #872321;
+}
+
+.form-control:focus {
+  border-color: #E8684E;
+}
+
+.hov{
+	display: inline-block;
+}
+
+hr {
+	color: #403F4C;
+	background-color: #403F4C;
+	border-color: #403F4C;
+}
+
+.footer {
+	background-color: #333;
+	color: #872321;
+}
+
+.contain {
+	border: none !important;
+	border-color: #ECE4B7;
+}

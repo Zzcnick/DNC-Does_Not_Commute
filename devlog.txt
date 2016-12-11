@@ -87,3 +87,8 @@ venderbushW -- 2016-12-11 14:23
 venderbushW -- 2016-12-11 15:01
 - Did more styling
 - Finished About Page and implemented it
+
+venderbushW -- 2016-12-11 16:32
+- Did even more styling
+- Added custom.css
+- added Favicon to main folder (for future use)

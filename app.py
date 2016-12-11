@@ -15,7 +15,7 @@ app.secret_key = "Welcome to the DNC!!!!!!!!"
 @app.route("/", methods=["POST","GET"])
 def root():
 	return render_template("main.html",
-							title="DoesNotCommute")
+							title="DoesNOTCommute")
 
 @app.route("/result", methods=["POST","GET"])
 def results():
