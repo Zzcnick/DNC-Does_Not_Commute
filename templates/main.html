@@ -10,6 +10,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script>
+        function fnctn(a, b){
+            var i, k;
+            for(i=0; i<b.length; i++){
+                if(a == b[i]){
+                    k=i+1;
+                }
+                document.getElementById(b[i]).style.display = "none";
+            }
+            document.getElementById(b[k]).style.display = "inherit";
+        }
+    </script>
 <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -24,6 +36,9 @@
       border-radius: 5px;
       display: none;
       }
+    .hov:hover{
+        cursor: pointer;
+    }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 3000px;}
@@ -119,36 +134,43 @@ body {
           <form class="centered" action="/result" method="POST">
               <br>
               
-              <div class="contain" style="display:inherit">
+              <div id = "option1" class="contain" style="display:inherit">
                   <h5>Enter Current Location</h5>
             <input type="text" name="location" placeholder="Current Location">
               <img src="../images/33.png" height="50%" width="50%">
+                  <div onclick="fnctn('option1', ['option1','option2','option3','option4','option5'])" class="hov">Next</div>
             </div>
-              <div class="contain">
+              <div  id = "option2" class="contain">
                   <h5>Enter Destination</h5>
             <input type="text" name="destination" placeholder="Destination" required>
                   <div>
               <img src="../images/destination.png" height="50%" width="50%">
+                      <div onclick="fnctn('option2', ['option1','option2','option3','option4', 
+                    'option5'])" class="hov">Next</div>
             </div>
               </div>
-              <div class="contain">
+              <div id = "option3"  class="contain">
                                 <h5>Mode of Transportation</h5>
-            <input type="radio" name="transportMode" value="tansit"> Public Transit <br>
-            <input type="radio" name="transportMode" value="train"> Train<br>
+            <input type="radio" name="transportMode" value="transit"> Public Transit <br>
             <input type="radio" name="transportMode" value="walking"> Walking
                 <div>
               <img src="../images/transportation.png" height="75%" width="75%">
+                    <div onclick="fnctn('option3', ['option1','option2','option3','option4', 
+                    'option5'])" class="hov">Next</div>
             </div>
               </div>
-              <div class="contain">
+              <div  id = "option4" class="contain">
                   <h5>Intended Time of Arrival</h5>
                 <input type="time">
                 <div>
                     <img src="../images/42.png" height="65%" width="65%">
                   </div>
+                  <div onclick="fnctn('option4', ['option1','option2','option3','option4', 
+                    'option5'])" class="hov">Next</div>
               </div>
-              
+              <div id="option5", class="contain">
             <input type="submit">
+                  </div>
         </form>
         <br>
         <br>

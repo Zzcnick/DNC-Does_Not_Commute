@@ -9,12 +9,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script>
+        function changeHidden(a, varList, b, otherList){
+            var i, k;
+            for(i=0; i<varList.length; i++){
+                document.getElementById(varList[i]).style.display= "none";
+            }
+            for(k=0; k<otherList.length; k++){
+                document.getElementById(otherList[k]).style.textDecoration = "none";
+            }
+            document.getElementById(a).style.display = "inline";
+            document.getElementById(b).style.textDecoration= "underline";
+        }
+    </script>
   <style>
+    #hide{
+          display: none;
+      }
+    #option1:hover{
+        cursor: pointer;
+      }
+      #option2:hover{
+        cursor: pointer;
+      }
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
+          .contain{
+      text-align: center;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      /*display: none;*/
+      }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
@@ -84,50 +112,55 @@
 	Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. 
       </p>
       <hr>
-      <h3>Fill in the Followin Infomation</h3> <!-- Form will look like this + nicer and with js-->
-          <iframe
-                  width="600"
-                  height="450"
-                  frameborder="0" style="border:0"
-                  src={{embed}} allowfullscreen>
+ <!-- Form will look like this + nicer and with js-->
+        <div class = "contain">
+            <h3><text id="option1" 
+                      onclick="changeHidden('part',['part','hide'], 'option1', ['option1','option2'])">Map</text>&nbsp;&nbsp;&nbsp;
+                
+                <text  id="option2"  
+                      
+                      onclick="changeHidden('hide',['part','hide'], 'option2', ['option1','option2'])"
+                      
+                      >Weather</text>&nbsp;&nbsp;&nbsp;</h3>
+            <hr>
+          <iframe 
+                  id="part"
+                  width="890"
+                  height="500"
+                  frameborder="0" style="border:0; border-radius: 0px;display:inline;"
+                  src={{maplink}} allowfullscreen>
         </iframe>
-							{{title}}<br>
-							{{cstatus}}<br>
-							{{ctemp}}<br>
-							{{cprecipType}}<br>
-							{{cfeel}}<br>
-							{{crainChance}}<br>
-							{{cintensity}}<br>
-							{{csunset}}<br>
-							{{csunrise}}<br>
-							{{cwind}}<br>
-							{{cicon}}<br>
-							{{dstatus}}<br>
-							{{dtemp}}<br>
-							{{dprecipType}}<br>
-							{{dfeel}}<br>
-							{{drainChance}}<br>
-							{{dintensity}}<br>
-							{{dsunset}}<br>
-							{{dsunrise}}<br>
-							{{dwind}}<br>
-							{{dicon}}<br>
+        <div id = "hide">
+							Status: {{cstatus}}<br>
+							Temperature: {{ctemp}}<br>
+							Chance of Precipitation: {{cprecipType}}<br>
+							Feels Like: {{cfeel}}<br>
+							Chance of Rain: {{crainChance}}<br>
+							Sunset: {{csunset}}<br>
+							Sunrise: {{csunrise}}<br>
+							Wind: {{cwind}}<br>
+							Status: {{dstatus}}<br>
+							Temperature: {{dtemp}}<br>
+							Chance of Precipitation: {{dprecipType}}<br>
+							Feels Like: {{dfeel}}<br>
+							Chance of Rain: {{drainChance}}<br>
+							Sunset: {{dsunset}}<br>
+							Sunrise: {{dsunrise}}<br>
+							Wind: {{dwind}}<br>
 							{{caddress}}<br>
 							{{daddress}}<br>
-							{{maplink}}<br>
-        <br>
-        <br>
+        </div>
     </div>
-    <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div>
+        Other variables
+                                    cicon: {{cicon}}<br>
+                            cintensity: {{cintensity}}<br>
+                            dicon: {{dicon}}<br>
+                            dintensity: {{dintensity}}<br>
   </div>
+              <div class="col-sm-2 sidenav">
+    </div>
 </div>
+    </div>
 
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
