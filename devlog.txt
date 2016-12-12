@@ -92,3 +92,8 @@ venderbushW -- 2016-12-11 16:32
 - Did even more styling
 - Added custom.css
 - added Favicon to main folder (for future use)
+
+venderbushW -- 2016-12-12 2:50
+- Did more styling
+- Hotfixes on DarkSky
+- More imgs
