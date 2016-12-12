@@ -121,26 +121,45 @@ body {
       <hr>
 
           <form class="centered" action="/result" method="POST">
-              <br>
               
               <div id = "option1" class="contain" style="display:inherit">
-                  <h5>Where are you now?</h5>
+                  <div>
+                  <h3>Where are you now?</h3>
+                  <br>
+                  </div>
+                  <div>
                   <img src="static/img/33.png" height="10%" width="10%">
+                  </div>
+
+                  <div class="col-sm-4 col-centered">
                   <input type="text" name="location" class="form-control" placeholder="Current Location">
-              
+                  </div>
+                  <br>
+
+
                   <div onclick="fnctn('option1', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
+
             </div>
               <div  id = "option2" class="contain">
-                  <h5>Where would you like to go?</h5>
+                  <h3>Where would you like to go?</h3>
+                  <div>
+                  <br>
                    <img src="static/img/destination.png" height="10%" width="10%">
+                   </div>
+                   <div class="col-sm-4 col-centered">
             <input type="text" class="form-control" name="destination" placeholder="Destination" required>
+            </div>
+            <br>
 
                   <div>
                       <div onclick="fnctn('option2', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
             </div>
+            <br>
+
+
               </div>
               <div id = "option3"  class="contain">
-                                <h5>How would you like to get there?</h5>
+                                <h3>How would you like to get there?</h3>
             <div class="row">
               <div class="col-xs-12">
             <img src="static/img/transportation.png" height="25%" width="25%">
@@ -165,10 +184,13 @@ body {
             </div>
               </div>
               <div  id = "option4" class="contain">
-                  <h5>When would you like to arrive?</h5>
+                  <h3>When would you like to arrive?</h3>
+                  <div>
                    <img src="static/img/42.png" height="10%" width="10%">
+                   </div>
                 <input type="time" name="arrivalTime">
                 <div>
+                <br>
                 <input type="submit" name="Commute" class="btn btn-primary" >
                 </div>
               </div>
