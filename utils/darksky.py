@@ -223,7 +223,7 @@ def getPrecipType(x, y, offset, *data):
 			precip = raindata["precipType"]
 			return precip
 		else:
-			return none
+			return "none"
 	if (offset > 60):
 		hourly = reqdict["hourly"]
 		closestHour = closestHourOffset(offset)
