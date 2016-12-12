@@ -219,8 +219,11 @@ def getPrecipType(x, y, offset, *data):
 		minutelydata = minutely["data"]
 		raindata = minutelydata[offset]
 		time = raindata["time"]
-		precip = raindata["precipType"]
-		return precip
+		if ("precipType" in raindata):
+			precip = raindata["precipType"]
+			return precip
+		else:
+			return none
 	if (offset > 60):
 		hourly = reqdict["hourly"]
 		closestHour = closestHourOffset(offset)
