@@ -34,14 +34,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="#"><img src="static/img/logo.png" height="100%" width="25%"></a>
+      <a href="/"><img src="static/img/logo.png" height="100%" width="25%"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="">About</a></li>
       </ul>
       <!--<ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -56,20 +54,30 @@
     </div>
     <div class="col-sm-8 text-left main"> 
       <h1>{{title}}</h1>
-      <p>
-	Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. Filler text. 
-      </p>
       <hr>
  <!-- Form will look like this + nicer and with js-->
-        <div class = "contain">
-            <h3><text id="option1" 
-                      onclick="changeHidden('part',['part','hide'], 'option1', ['option1','option2'])">Map</text>&nbsp;&nbsp;&nbsp;
+        <div class="form-inline">
+          <div class="line hov">
+            <text id="option1" 
+                      onclick="changeHidden('part',['part','hide'], 'option1', ['option1','option2'])"><button type="button" class="btn btn-lg btn-primary">Map</button></text>&nbsp;&nbsp;&nbsp;
+                      </div>
+
+                      <div class="line hov">
                 
                 <text  id="option2"  
                       
                       onclick="changeHidden('hide',['part','hide'], 'option2', ['option1','option2'])"
                       
-                      >Weather</text>&nbsp;&nbsp;&nbsp;</h3>
+                      ><button type="button" class="btn btn-lg btn-primary">Details</button></text>&nbsp;&nbsp;&nbsp;
+
+                      </div>
+
+                      <div class="btn-group btn-group-lg pull-right">
+                        <button type = "button" class = "btn btn-default"><img src="../static/img/{{cicon}}.png" height="10%" width="10%">{{ctemp}}°F</button>
+                        
+                     
+
+                      </div>
             <hr>
           <iframe 
                   id="part"
@@ -99,11 +107,6 @@
 							{{daddress}}<br>
         </div>
     </div>
-        Other variables
-                            cicon: <img src="../static/img/{{cicon}}"><br>
-                            cintensity: {{cintensity}}<br>
-                            dicon: {{dicon}}<br>
-                            dintensity: {{dintensity}}<br>
   </div>
               <div class="col-sm-2 sidenav">
     </div>
@@ -111,7 +114,11 @@
     </div>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <div class="col-sm-6">
+  <p>© Copyright 2016 DoesNotCommute</p>
+  </div>
+   <div class="col-sm-6">
+   <a target="_blank" href="https://darksky.net/poweredby/">Powered by Darksky</a>
 </footer>
 
 </body>

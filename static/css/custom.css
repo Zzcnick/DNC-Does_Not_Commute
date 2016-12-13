@@ -5,7 +5,17 @@ body{
 .btn-primary{
 	background-color: #872321;
 	border-color: #6B0707;
+
 }
+
+.btn-default:focus {outline: none;}
+
+.btn-default:hover{
+  
+}
+
+.btn-primary:focus { outline: none; } 
+
 .btn-primary:hover{
 	background-color: #6B0707;
 	border-color: #872321;
@@ -15,12 +25,21 @@ a {
 	color: #872321;
 }
 
+.txthead {
+	font-weight: bold;
+	font-size: 20px;
+}
+
 a:hover {
 	color: #872321;
 }
 
 .form-control:focus {
   border-color: #E8684E;
+}
+
+btn-weather:active{
+	background-color: white;
 }
 
 .hov{
@@ -55,7 +74,7 @@ hr {
       text-align: center;
       border: 1px solid #eee;
       border-radius: 5px;
-      display: none;
+      /*display: none;*/
       }
     .hov:hover{
         cursor: pointer;
