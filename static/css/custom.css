@@ -107,13 +107,13 @@ hr {
 
 #hide{
           display: none;
-      }
-    #option1:hover{
+}
+#option1:hover{
         cursor: pointer;
-      }
-      #option2:hover{
+}
+#option2:hover{
         cursor: pointer;
-      }
+}
 
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
