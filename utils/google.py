@@ -104,6 +104,7 @@ def get_directions_dict(origin, destination, mode):
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
+    print dm_url
     return dm_dict
 
 def get_map_link(origin, destination, mode):
@@ -142,12 +143,35 @@ def get_distance(dm_dict):
     distance = dm_dict["routes"][0]["legs"][0]["distance"]["text"]
     return distance
 
-def get_directions(dm_dict):
+def get_directions_driving(dm_dict):
     steps = dm_dict["routes"][0]["legs"][0]["steps"]
+#    line_counter = 0
     retStr = ""
     for item in steps:
         retStr += item["html_instructions"] + "\n"
+#        line_counter += 1
+#    print line_counter
     return retStr
 
-#test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
-#print get_directions(test_dict)
+def get_directions_walking(dm_dict):
+    steps = dm_dict["routes"][0]["legs"][0]["steps"]
+    line_counter = 0
+    retStr = ""
+    for item in steps:
+        retStr += item["html_instructions"] + "\n"
+        line_counter += 1
+    print line_counter
+    return retStr
+
+def get_detailed_directions(dm_dict):
+    steps = dm_dict["routes"][0]["legs"][0]["steps"][0]["steps"]
+    line_counter = 0
+    retStr = ""
+    for item in steps:
+        retStr += item["html_instructions"] + "\n"
+        line_counter += 1
+    print line_counter
+    return retStr
+
+test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
+print get_detailed_directions(test_dict)
