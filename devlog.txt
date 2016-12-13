@@ -100,3 +100,7 @@ venderbushW -- 2016-12-12 14:50
 
 venderbushW -- 2016-12-12 22:06
 - Finished styling the front pages
+
+venderbushW -- 2016-12-12 23:56
+- Styled the results page
+- edited images
