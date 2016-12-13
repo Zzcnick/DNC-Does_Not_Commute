@@ -10,10 +10,6 @@ body{
 
 .btn-default:focus {outline: none;}
 
-.btn-default:hover{
-  
-}
-
 .btn-primary:focus { outline: none; } 
 
 .btn-primary:hover{
