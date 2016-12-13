@@ -33,11 +33,6 @@ hr {
 	border-color: #403F4C;
 }
 
-.footer {
-	background-color: #333;
-	color: #872321;
-}
-
 .contain {
 	border: none !important;
 	border-color: #ECE4B7;
@@ -46,4 +41,84 @@ hr {
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+
+/*---*/
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+        
+    }
+    
+    .contain{
+      text-align: center;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      display: none;
+      }
+    .hov:hover{
+        cursor: pointer;
+    }
+    
+    .row.content {height: 767px;}
+
+    .sidenav {
+	  /**/
+	  background: #f9f2f3; /* For browsers that do not support gradients */
+	  background: -webkit-linear-gradient(left, #ECE4B7 , #f9f2f3); /* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient(right, #ECE4B7, #f9f2f3); /* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient(right, #ECE4B7, #f9f2f3); /* For Firefox 3.6 to 15 */
+	  background: linear-gradient(to right, #ECE4B7 , #f9f2f3); /* Standard syntax */
+
+      padding-top: 20px;
+      height: 100%;
+    }
+
+    .sidenavl {
+	  /**/
+	  background: #f9f2f3; /* For browsers that do not support gradients */
+	  background: -webkit-linear-gradient(right, #ECE4B7 , #f9f2f3); /* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient(left, #ECE4B7, #f9f2f3); /* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient(left, #ECE4B7, #f9f2f3); /* For Firefox 3.6 to 15 */
+	  background: linear-gradient(to left, #ECE4B7 , #f9f2f3); /* Standard syntax */
+
+      padding-top: 20px;
+      height: 100%;
+    }
+    
+    footer {
+      padding: 15px;
+      background-color: #333;
+	  color: #872321;
+    }
+   
+      .main{
+          height: 100%;
+      }
+      
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+
+#hide{
+          display: none;
+      }
+    #option1:hover{
+        cursor: pointer;
+      }
+      #option2:hover{
+        cursor: pointer;
+      }
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+* {margin: 0; padding: 0;}
+
+body {
+	font-family: montserrat, arial, verdana;
 }

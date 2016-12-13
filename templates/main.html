@@ -21,76 +21,6 @@
             document.getElementById(b[k]).style.display = "inherit";
         }
     </script>
-<style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-        
-    }
-    
-    .contain{
-      text-align: center;
-      border: 1px solid #eee;
-      border-radius: 5px;
-      display: none;
-      }
-    .hov:hover{
-        cursor: pointer;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 3000px;}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* Edit div to span the height of the entire page */
-      .main{
-          height: 100%;
-      }
-      
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-    
-    /*custom font*/
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
-
-/*basic reset*/
-* {margin: 0; padding: 0;}
-
-html {
-	height: 100%;
-	/*Image only BG fallback*/
-	background: url('http://thecodeplayer.com/uploads/media/gs.png');
-	/*background = gradient + image pattern combo*/
-	background: 
-		linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
-		url('http://thecodeplayer.com/uploads/media/gs.png');
-}
-
-body {
-	font-family: montserrat, arial, verdana;
-}
-
-  </style>
 </head>
 <body>
 
@@ -114,7 +44,7 @@ body {
   
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenavl">
     </div>
     <div class="col-sm-8 text-left main"> 
       <center><h1><b>{{title}}</b></h1></center>

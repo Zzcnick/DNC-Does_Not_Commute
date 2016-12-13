@@ -93,7 +93,10 @@ venderbushW -- 2016-12-11 16:32
 - Added custom.css
 - added Favicon to main folder (for future use)
 
-venderbushW -- 2016-12-12 2:50
+venderbushW -- 2016-12-12 14:50
 - Did more styling
 - Hotfixes on DarkSky
 - More imgs
+
+venderbushW -- 2016-12-12 22:06
+- Finished styling the front pages
