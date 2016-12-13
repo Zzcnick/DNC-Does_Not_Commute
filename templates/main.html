@@ -8,13 +8,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+    <style>
+        .contain{
+            display: none;
+            align-content: center;
+        }
+    </style>
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
     <script>
         function fnctn(a, b){
             var i, k;
             for(i=0; i<b.length; i++){
                 if(a == b[i]){
-                    k=i+1;
+                    if(i==0 && document.getElementById("am1").value == ""){
+                        document.getElementById("am1").value="current_location";
+                        k=i+1;
+                    }else if(i==1 && document.getElementById("am2").value == ""){
+                        k= i;
+                    }else {
+                        k = i+1;
+                    }
+                }
+                document.getElementById(b[i]).style.display = "none";
+            }
+            document.getElementById(b[k]).style.display = "inherit";
+        }
+        
+        function fnct(a, b){
+            var i, k;
+            for(i=0; i<b.length; i++){
+                if(a == b[i]){
+                    k = i-1;
                 }
                 document.getElementById(b[i]).style.display = "none";
             }
@@ -38,6 +62,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="/about">About</a></li>
+        </ul>
     </div>
   </div>
 </nav>
@@ -62,12 +87,12 @@
                   </div>
 
                   <div class="col-sm-4 col-centered">
-                  <input type="text" name="location" class="form-control" placeholder="Current Location">
+                  <input type="text"  id="am1" name="location" class="form-control" placeholder="Enter Your Location Here">
                   </div>
                   <br>
 
 
-                  <div onclick="fnctn('option1', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
+                  <div  onclick="fnctn('option1', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
 
             </div>
               <div  id = "option2" class="contain">
@@ -77,12 +102,13 @@
                    <img src="static/img/destination.png" height="10%" width="10%">
                    </div>
                    <div class="col-sm-4 col-centered">
-            <input type="text" class="form-control" name="destination" placeholder="Destination" required>
+            <input type="text" id="am2" class="form-control" name="destination" placeholder="Destination" required>
             </div>
             <br>
 
                   <div>
-                      <div onclick="fnctn('option2', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
+                    <div onclick="fnct('option2', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </button></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <div onclick="fnctn('option2', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
             </div>
             <br>
 
@@ -99,7 +125,7 @@
               <input type="radio" name="transportMode" class="form-check-input" value="driving"> Car
               </div>
               <div class="col-xs-3">
-            <input type="radio" name="transportMode" class="form-check-input" value="transit"> Public Transit <br>
+            <input type="radio" name="transportMode" class="form-check-input" value="transit" checked="checked"> Public Transit <br>
             </div>
             <div class="col-xs-3">
             <input type="radio" name="transportMode" class="form-check-input" value="walking"> Walking
@@ -107,11 +133,11 @@
             <div class="col-xs-3">
             <input type="radio" name="transportMode" class="form-check-input" value="bicycling"> Biking
             </div>
+                </div>
             </div>
-          
-              
-                    <div onclick="fnctn('option3', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">Next</button></div>
-            </div>
+                  <br>
+                    <div onclick="fnct('option3', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </button></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div onclick="fnctn('option3', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
               </div>
               <div  id = "option4" class="contain">
                   <h3>When would you like to arrive?</h3>
@@ -123,6 +149,8 @@
                 <br>
                 <input type="submit" name="Commute" class="btn btn-primary" >
                 </div>
+                    <br>
+                  <div onclick="fnct('option4', ['option1', 'option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </button></div>
               </div>
         </form>
         <br>
