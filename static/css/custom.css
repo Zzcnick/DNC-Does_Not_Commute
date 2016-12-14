@@ -71,7 +71,7 @@ hr {
         cursor: pointer;
     }
     
-    .row.content {height: 100%;}
+    .row.content {height: 767px;}
 
     .sidenav {
 	  /**/
@@ -103,7 +103,7 @@ hr {
     }
    
       .main{
-          height: 100%;
+          height: auto;
       }
       
     @media screen and (max-width: 767px) {

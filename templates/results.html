@@ -59,16 +59,26 @@
         <div class="form-inline">
           <div class="line hov">
             <text id="option1" 
-                      onclick="changeHidden('part',['part','hide'], 'option1', ['option1','option2'])"><button type="button" class="btn btn-lg btn-primary">Map</button></text>&nbsp;&nbsp;&nbsp;
+                      onclick="changeHidden('part',['part','hide','hide2'], 'option1', ['option1','option2','option3'])"><button type="button" class="btn btn-lg btn-primary">Map</button></text>&nbsp;&nbsp;&nbsp;
                       </div>
 
                       <div class="line hov">
                 
                 <text  id="option2"  
                       
-                      onclick="changeHidden('hide',['part','hide'], 'option2', ['option1','option2'])"
+                      onclick="changeHidden('hide',['part','hide','hide2'], 'option2', ['option1','option2','option3'])"
                       
-                      ><button type="button" class="btn btn-lg btn-primary">Details</button></text>&nbsp;&nbsp;&nbsp;
+                      ><button type="button" class="btn btn-lg btn-primary">Directions</button></text>&nbsp;&nbsp;&nbsp;
+
+                      </div>
+
+                <div class="line hov">
+                
+                <text  id="option3"  
+                      
+                      onclick="changeHidden('hide2',['part','hide','hide2'], 'option3', ['option1','option2','option3'])"
+                      
+                      ><button type="button" class="btn btn-lg btn-primary">Weather</button></text>&nbsp;&nbsp;&nbsp;
 
                       </div>
                       <div class="btn-group btn-group-lg pull-right">
@@ -87,7 +97,7 @@
                   frameborder="0" style="border:0; border-radius: 0px;display:inline;"
                   src={{maplink}} allowfullscreen>
         </iframe>
-        <div id = "hide">
+        <div id = "hide2">
               <div class="cointainer">
                 <div class="row">
                   <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
@@ -213,6 +223,10 @@
                 </div>
               </div>
               <hr>
+
+      <div id = "hide">
+
+      </div>
               
 
               
