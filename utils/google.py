@@ -143,7 +143,8 @@ def get_distance(dm_dict):
     distance = dm_dict["routes"][0]["legs"][0]["distance"]["text"]
     return distance
 
-def get_directions_driving(dm_dict):
+def get_directions_driving(origin, destination):
+    dm_dict = get_directions_dict(origin, destination, "driving")
     steps = dm_dict["routes"][0]["legs"][0]["steps"]
 #    line_counter = 0
     retStr = ""
@@ -153,7 +154,8 @@ def get_directions_driving(dm_dict):
 #    print line_counter
     return retStr
 
-def get_detailed_directions(dm_dict):
+def get_directions_transit(origin, destination):
+    dm_dict = get_directions_dict(origin, destination, "transit")
     data = dm_dict['routes'][0]['legs'][0]['steps']
     step = 0;
     retStr = ""
@@ -178,16 +180,16 @@ def get_detailed_directions(dm_dict):
         retStr += "\n"
     return retStr
 
-# UNNECESSARY
-#def get_directions_walking(dm_dict):
-#    steps = dm_dict["routes"][0]["legs"][0]["steps"]
-#    line_counter = 0
-#    retStr = ""
-#    for item in steps:
-#        retStr += item["html_instructions"] + "\n"
-#        line_counter += 1
-#    print line_counter
-#    return retStr
+def get_directions_walking(origin, destination):
+    dm_dict = get_directions_dict(origin, destination, "walking")
+    steps = dm_dict["routes"][0]["legs"][0]["steps"]
+    line_counter = 0
+    retStr = ""
+    for item in steps:
+        retStr += item["html_instructions"] + "\n"
+        line_counter += 1
+    print line_counter
+    return retStr
 
 # UNNECESSARY
 #def get_detailed_directions(dm_dict):
@@ -200,5 +202,4 @@ def get_detailed_directions(dm_dict):
 #    print line_counter
 #    return retStr
 
-# test_dict = get_directions_dict("345 Chambers Street", "67-41 Burns Street", "transit")
-# print get_detailed_directions(test_dict)
+# print get_directions_transit("345 Chambers Street", "67-41 Burns Street")

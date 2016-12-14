@@ -4,13 +4,9 @@ from utils import google, darksky
 app = Flask(__name__)
 app.secret_key = "Welcome to the DNC!!!!!!!!"
 
-#############-------------------------------------------------------------------------------------------------------------------------------------------
+#############
 ##FUNCTIONS##
-#############-------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-#-------------------------------------------------------------------------------------------------------------------------------------------------------
+#############
 
 @app.route("/", methods=["POST","GET"])
 def root():
@@ -19,10 +15,11 @@ def root():
 
 @app.route("/result", methods=["POST","GET"])
 def results():
-	if request.method == 'POST':
-		# Current Coordinates 
-		currentCoordinates = google.gl_location() #array [x, y]
-	if ('location' in request.form):
+        # ============= DATA RETRIEVAL ==============
+        if request.method == 'GET':
+		return redirect(url_for("root"))
+        currentCoordinates = google.gl_location() #array [x, y]
+	if ('location' in request.form and request.form['location'] != 'current_location'):
 		currentCoordinates = request.form['location']
 		currentCoordinates = google.gc_latlng(currentCoordinates)
 
@@ -33,7 +30,6 @@ def results():
 	# Transport Mode
 	transport = str(request.form['transportMode'])
 	
-	# ============= DATA RETRIEVAL ==============
 	# ETA
 	eta = google.dm_eta(currentCoordinates[0], currentCoordinates[1],
 		            destinationCoordinates[0], destinationCoordinates[1],
@@ -46,38 +42,49 @@ def results():
 	currentAddress = google.gc_address(currentCoordinates[0], currentCoordinates[1])
 	destinationAddress = google.gc_address(destinationCoordinates[0], destinationCoordinates[1])
 
-	return render_template("results.html",
-							title="Trip Results",
-							cstatus = currentWeather["status"],
-							ctemp = currentWeather["temp"],
-							cprecipType = currentWeather["precipType"],
-							cfeel = currentWeather["feel"],
-							crainChance = currentWeather["rainChance"],
-							cintensity = currentWeather["intensity"],
-							csunset = darksky.convertTime(currentWeather["sunset"], 1),
-							csunrise = darksky.convertTime(currentWeather["sunrise"], 1),
-							cwind = currentWeather["wind"],
-							cicon = currentWeather["icon"],
-							dstatus = destinationWeather["status"],
-							dtemp = destinationWeather["temp"],
-							dprecipType = destinationWeather["precipType"],
-							dfeel = destinationWeather["feel"],
-							drainChance = destinationWeather["rainChance"],
-							dintensity = destinationWeather["intensity"],
-							dsunset = darksky.convertTime(destinationWeather["sunset"], 1),
-							dsunrise = darksky.convertTime(destinationWeather["sunrise"], 1),
-							dwind = destinationWeather["wind"],
-							dicon = destinationWeather["icon"],
-							caddress = currentAddress,
-							daddress = destinationAddress,
-							maplink = google.get_map_link(currentAddress, destinationAddress, transport)
-							)
+        # Directions
+        if transport == 'walking':
+                directionDetails = google.get_directions_walking(currentAddress, destinationAddress)
+        elif transport == 'driving':
+                directionDetails = google.get_directions_driving(currentAddress, destinationAddress)
+        elif transport == 'transit':
+                directionDetails = google.get_directions_transit(currentAddress, destinationAddress)
 
-	#return str(caddress) + "<br>" + str(daddress) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)
-# print(currentCoordinates)
-# print(destinationCoordinates)
-# return render_template("results.html",
-# title="Trip Results")
+        # ============= TEMPLATING ==============
+	return render_template("results.html",
+                               title="Trip Results",
+                               cstatus = currentWeather["status"],
+                               ctemp = currentWeather["temp"],
+                               cprecipType = currentWeather["precipType"],
+                               cfeel = currentWeather["feel"],
+                               crainChance = currentWeather["rainChance"],
+                               cintensity = currentWeather["intensity"],
+                               csunset = darksky.convertTime(currentWeather["sunset"], 1),
+                               csunrise = darksky.convertTime(currentWeather["sunrise"], 1),
+                               cwind = currentWeather["wind"],
+                               cicon = currentWeather["icon"],
+                               dstatus = destinationWeather["status"],
+                               dtemp = destinationWeather["temp"],
+                               dprecipType = destinationWeather["precipType"],
+                               dfeel = destinationWeather["feel"],
+                               drainChance = destinationWeather["rainChance"],
+                               dintensity = destinationWeather["intensity"],
+                               dsunset = darksky.convertTime(destinationWeather["sunset"], 1),
+                               dsunrise = darksky.convertTime(destinationWeather["sunrise"], 1),
+                               dwind = destinationWeather["wind"],
+                               dicon = destinationWeather["icon"],
+                               caddress = currentAddress,
+                               daddress = destinationAddress,
+                               maplink = google.get_map_link(currentAddress, destinationAddress, transport),
+                               directions = directionDetails,
+                               etime = eta;
+        )
+
+	# return str(caddress) + "<br>" + str(daddress) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)
+        # print(currentCoordinates)
+        # print(destinationCoordinates)
+        # return render_template("results.html",
+        # title="Trip Results")
 
 
 @app.route("/about/", methods=["POST","GET"])
