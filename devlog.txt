@@ -105,6 +105,10 @@ venderbushW -- 2016-12-12 23:56
 - Styled the results page
 - edited images
 
-luB -- 2016-12-13 4:20
+luB -- 2016-12-13 16:20
 - Returns more detailed directions now
 - Implementing for different travel modes
+
+venderbushW -- 2016-12-13 20:40
+- Finished formatting results page
+- Broke footer on results reveal 

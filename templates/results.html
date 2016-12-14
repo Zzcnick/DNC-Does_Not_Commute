@@ -90,43 +90,132 @@
         <div id = "hide">
               <div class="cointainer">
                 <div class="row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
                   <h2> Here </h2>
                   </div>
-                  <div class="col-lg-6">
-                  <h2> There </h2>
+                  <div class="col-lg-6 text-center">
+                  <h2> When You Get There </h2>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6">
-                  <h4> {{cstatus}} </h4>
+                  <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h5> {{caddress}} </h5>
                   </div>
-                  <div class="col-lg-6">
-                  <h4> {{dstatus}} </h4>
+                  <div class="col-lg-6 text-center">
+                  <h5> {{daddress}} </h5>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-lg-2">
+                  <img src="../static/img/{{cicon}}.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> {{cstatus}} </h3>
+                  </div>
+                  <div class="col-lg-2">
+                  <img src="../static/img/{{dicon}}.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4">
+                  <h3> {{dstatus}} </h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2">
+                  <img src="../static/img/temp.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> {{ctemp}} °F </h3>
+                  </div>
+                  <div class="col-lg-2">
+                  <img src="../static/img/temp.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4">
+                  <h3> {{dtemp}} °F </h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2">
+                  <img src="../static/img/feel.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> {{cfeel}} °F </h3>
+                  </div>
+                  <div class="col-lg-2">
+                  <img src="../static/img/feel.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4">
+                  <h3> {{dfeel}} °F </h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2">
+                  <img src="../static/img/umbrella.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> {{crainChance}}% </h3>
+                  </div>
+                  <div class="col-lg-2">
+                  <img src="../static/img/umbrella.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4">
+                  <h3> {{drainChance}}% </h3>
+                  </div>
+                </div>
+                <div class="row">
+                  {% if cprecipType != "clear" %}
+                  <div class="col-lg-2">
+                  <img src="../static/img/{{cprecipType}}.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> Precipitation: {{cprecipType}} </h3>
+                  </div>
+                  {% endif %}
+                  {% if dprecipType != "clear" %}
+                  <div class="col-lg-2">
+                  <img src="../static/img/{{cprecipType}}.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4">
+                  <h3> Precipitation: {{cprecipType}} </h3>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="row">
+                  <div class="col-lg-2">
+                  <img src="../static/img/wind.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> {{cwind}} mph </h3>
+                  </div>
+                  <div class="col-lg-2">
+                  <img src="../static/img/wind.png" height="70" width="70">
+                  </div>
+                  <div class="col-lg-4">
+                  <h3> {{dwind}} mph </h3>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
+                  <img src="../static/img/sunrise.png" height="100" width="100">
+                  </div>
+                  <div class="col-lg-6 text-center">
+                  <img src="../static/img/sunset.png" height="100" width="100">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
+                  <h3> {{csunrise}} </h3>
+                  </div>
+                  <div class="col-lg-6 text-center">
+                  <h3> {{dsunset}} </h3>
                   </div>
                 </div>
               </div>
+              <hr>
+              
 
-
-
-              Status: {{cstatus}}<br>
-              Temperature: {{ctemp}}<br>
-              Chance of Precipitation: {{cprecipType}}<br>
-              Feels Like: {{cfeel}}<br>
-              Chance of Rain: {{crainChance}}<br>
-              Sunset: {{csunset}}<br>
-              Sunrise: {{csunrise}}<br>
-              Wind: {{cwind}}<br>
-              Status: {{dstatus}}<br>
-              Temperature: {{dtemp}}<br>
-              Chance of Precipitation: {{dprecipType}}<br>
-              Feels Like: {{dfeel}}<br>
-              Chance of Rain: {{drainChance}}<br>
-              Sunset: {{dsunset}}<br>
-              Sunrise: {{dsunrise}}<br>
-              Wind: {{dwind}}<br>
-              {{caddress}}<br>
-              {{daddress}}<br>
+              
         </div>
     </div>
   </div>
@@ -134,7 +223,7 @@
     </div>
 </div>
     </div>
-
+              
 <footer class="container-fluid text-center">
   <div class="col-sm-6">
   <p>© Copyright 2016 DoesNotCommute</p>

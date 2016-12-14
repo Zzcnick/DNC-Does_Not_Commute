@@ -212,7 +212,7 @@ def getPrecipType(x, y, offset, *data):
 		req = curr.read()
 		reqdict = json.loads(req)
 	if (getIntensity(x, y, offset, reqdict) == 0):
-		return "none"
+		return "clear"
 	currently = reqdict["currently"]
 	if (offset > 0 and offset < 61 and "minutely" in reqdict):
 		minutely = reqdict["minutely"]
@@ -223,7 +223,7 @@ def getPrecipType(x, y, offset, *data):
 			precip = raindata["precipType"]
 			return precip
 		else:
-			return "none"
+			return "clear"
 	if (offset > 60):
 		hourly = reqdict["hourly"]
 		closestHour = closestHourOffset(offset)

@@ -21,10 +21,6 @@ a {
 	color: #872321;
 }
 
-.txthead {
-	font-weight: bold;
-	font-size: 20px;
-}
 
 a:hover {
 	color: #872321;
@@ -70,33 +66,31 @@ hr {
       text-align: center;
       border: 1px solid #eee;
       border-radius: 5px;
-      /*display: none;*/
       }
     .hov:hover{
         cursor: pointer;
     }
     
-    .row.content {height: 767px;}
+    .row.content {height: 100%;}
 
     .sidenav {
 	  /**/
-	  background: #f9f2f3; /* For browsers that do not support gradients */
-	  background: -webkit-linear-gradient(left, #ECE4B7 , #f9f2f3); /* For Safari 5.1 to 6.0 */
-	  background: -o-linear-gradient(right, #ECE4B7, #f9f2f3); /* For Opera 11.1 to 12.0 */
-	  background: -moz-linear-gradient(right, #ECE4B7, #f9f2f3); /* For Firefox 3.6 to 15 */
-	  background: linear-gradient(to right, #ECE4B7 , #f9f2f3); /* Standard syntax */
-
+	  background: #f9f2f3; 
+	  background: -webkit-linear-gradient(left, #ECE4B7 , #f9f2f3); 
+	  background: -o-linear-gradient(right, #ECE4B7, #f9f2f3); 
+	  background: -moz-linear-gradient(right, #ECE4B7, #f9f2f3); 
+	  background: linear-gradient(to right, #ECE4B7 , #f9f2f3); 
       padding-top: 20px;
       height: 100%;
     }
 
     .sidenavl {
 	  /**/
-	  background: #f9f2f3; /* For browsers that do not support gradients */
-	  background: -webkit-linear-gradient(right, #ECE4B7 , #f9f2f3); /* For Safari 5.1 to 6.0 */
-	  background: -o-linear-gradient(left, #ECE4B7, #f9f2f3); /* For Opera 11.1 to 12.0 */
-	  background: -moz-linear-gradient(left, #ECE4B7, #f9f2f3); /* For Firefox 3.6 to 15 */
-	  background: linear-gradient(to left, #ECE4B7 , #f9f2f3); /* Standard syntax */
+	  background: #f9f2f3; 
+	  background: -webkit-linear-gradient(right, #ECE4B7 , #f9f2f3); 
+	  background: -o-linear-gradient(left, #ECE4B7, #f9f2f3); 
+	  background: -moz-linear-gradient(left, #ECE4B7, #f9f2f3); 
+	  background: linear-gradient(to left, #ECE4B7 , #f9f2f3); 
 
       padding-top: 20px;
       height: 100%;
@@ -105,7 +99,7 @@ hr {
     footer {
       padding: 15px;
       background-color: #333;
-	  color: #872321;
+	    color: #872321;
     }
    
       .main{
