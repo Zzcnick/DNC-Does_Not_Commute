@@ -6,7 +6,7 @@ import json, urllib2, datetime
 # ================================================
 #                DarkSky API Calls
 # ================================================
-# Notes: Currently, functions only work on the
+# Notes: Functions only work on the
 #		next 48 hours, using offsets in minutes
 #		(max minute offset seems to be 2910)
 # ================================================

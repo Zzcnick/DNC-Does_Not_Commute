@@ -132,3 +132,7 @@ luB -- 2016-12-14 2:21
 - Finished lateness function
 - Finished bicycling directions
 - Fixed formatting for conversion from directionsAPI to Jinja Templating
+
+venderbushW -- 2016-12-14 11:44
+- Implemented biking direction display
+- Added extra warning features on homepage

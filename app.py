@@ -82,12 +82,6 @@ def results():
                                etime = eta
         )
 
-	# return str(caddress) + "<br>" + str(daddress) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)
-        # print(currentCoordinates)
-        # print(destinationCoordinates)
-        # return render_template("results.html",
-        # title="Trip Results")
-
 
 @app.route("/about/", methods=["POST","GET"])
 def about():
@@ -96,7 +90,6 @@ def about():
 
 @app.route("/test/", methods=["GET"])
 def test():
-#    return render_template("testMap.html", embed= "https://maps.google.com/maps/embed/v1/directions?mode=transit&origin=%22Stuyvesant+High+School&destination=42-25+247th+St,+Flushing,+NY+11363&key=AIzaSyD96prG2oU4bKyCxWN3fge3TVJKGKm3Zrw")
 	return render_template("testMap.html",
 							embed= google.get_map_link("Little Neck", "Stuyvesant High School", "transit"))
 
