@@ -136,3 +136,6 @@ luB -- 2016-12-14 2:21
 venderbushW -- 2016-12-14 11:44
 - Implemented biking direction display
 - Added extra warning features on homepage
+- Implemented favicon
+- Bugs: Gradient Cutoff
+- To Implement: Lateness Functionality
