@@ -149,7 +149,7 @@ def get_directions_driving(origin, destination):
 #    line_counter = 0
     retStr = ""
     for item in steps:
-        retStr += item["html_instructions"] + "\n"
+        retStr += item["html_instructions"] + "<br>"
 #        line_counter += 1
 #    print line_counter
     return retStr
@@ -161,22 +161,22 @@ def get_directions_transit(origin, destination):
     retStr = ""
     for i in data:
         step += 1;
-        retStr += "Step " + str(step) + ":<br>\n"
-        retStr += i['html_instructions'] + "<br>\n"
+        retStr += "Step " + str(step) + ":<br>"
+        retStr += i['html_instructions'] + "<br>"
         mode = i['travel_mode']
         if (mode == "WALKING"):
             for direction in i['steps']:
                 if 'html_instructions' in direction:
-                    retStr += direction['html_instructions'] + "<br>\n"
+                    retStr += direction['html_instructions'] + "<br>"
         elif (mode == "TRANSIT"):
             details = i['transit_details']
-            retStr += details['departure_stop']['name'] + " to " + details['arrival_stop']['name'] + "<br>\n"
+            retStr += details['departure_stop']['name'] + " to " + details['arrival_stop']['name'] + "<br>"
             retStr += "Take the "
             if 'short_name' in details['line']:
                 retStr += details['line']['short_name'] + " train "
             elif 'name' in details['line']:
                 retStr += details['line']['name'] + " "
-            retStr += str(details['num_stops']) + " stops towards " + details['headsign'] + "<br>\n"
+            retStr += str(details['num_stops']) + " stops towards " + details['headsign'] + "<br>"
         retStr += "\n"
     return retStr
 
@@ -186,10 +186,12 @@ def get_directions_walking(origin, destination):
     line_counter = 0
     retStr = ""
     for item in steps:
-        retStr += item["html_instructions"] + "\n"
+        retStr += item["html_instructions"] + "<br>"
         line_counter += 1
     print line_counter
     return retStr
+
+
 
 # UNNECESSARY
 #def get_detailed_directions(dm_dict):
