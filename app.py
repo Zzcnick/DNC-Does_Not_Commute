@@ -49,6 +49,8 @@ def results():
                 directionDetails = google.get_directions_driving(currentAddress, destinationAddress)
         elif transport == 'transit':
                 directionDetails = google.get_directions_transit(currentAddress, destinationAddress)
+        elif transport == 'bicycling':
+                directionDetails = google.get_directions_bicycling(currentAddress, destinationAddress)
 
         # ============= TEMPLATING ==============
 	return render_template("results.html",
@@ -77,7 +79,7 @@ def results():
                                daddress = destinationAddress,
                                maplink = google.get_map_link(currentAddress, destinationAddress, transport),
                                directions = directionDetails,
-                               etime = eta;
+                               etime = eta
         )
 
 	# return str(caddress) + "<br>" + str(daddress) + "<br>" + str(transport) + "<br>" + str(eta) + "<br>" + str(currentWeather) + "<br>" + str(destinationWeather)
