@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DNC-Does_Not_Commute$google.coverage" NAME="google Coverage Results" MODIFIED="1481620804245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/DNC-Does_Not_Commute$google.coverage" NAME="google Coverage Results" MODIFIED="1481691633268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/DNC-Does_Not_Commute$app.coverage" NAME="app Coverage Results" MODIFIED="1481155944821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -40,8 +40,8 @@
       <file leaf-file-name="google.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utils/google.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="147" column="46" selection-start-line="147" selection-start-column="46" selection-end-line="147" selection-end-column="46" />
+            <state relative-caret-position="539">
+              <caret line="227" column="41" selection-start-line="227" selection-start-column="41" selection-end-line="227" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -50,18 +50,19 @@
       <file leaf-file-name="results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-204">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-                <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="darksky.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/darksky.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1989">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -358,18 +359,18 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29281184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29562435" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -400,16 +401,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -433,16 +425,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -467,16 +450,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -501,16 +475,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -542,16 +507,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -642,23 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1481688829746" expanded="true" signature="72:10312" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="978:10304" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1015:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1047:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="1079:1351" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10101:10295" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10126:10176" ph="..." />
-            <marker date="1481688829746" expanded="true" signature="10202:10286" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/keys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -667,10 +606,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/darksky.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/google.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="147" column="46" selection-start-line="147" selection-start-column="46" selection-end-line="147" selection-end-column="46" />
+        <state relative-caret-position="539">
+          <caret line="227" column="41" selection-start-line="227" selection-start-column="41" selection-end-line="227" selection-end-column="41" />
           <folding />
         </state>
       </provider>
