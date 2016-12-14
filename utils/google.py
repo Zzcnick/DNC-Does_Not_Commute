@@ -153,25 +153,52 @@ def get_directions_driving(dm_dict):
 #    print line_counter
     return retStr
 
-def get_directions_walking(dm_dict):
-    steps = dm_dict["routes"][0]["legs"][0]["steps"]
-    line_counter = 0
-    retStr = ""
-    for item in steps:
-        retStr += item["html_instructions"] + "\n"
-        line_counter += 1
-    print line_counter
-    return retStr
-
 def get_detailed_directions(dm_dict):
-    steps = dm_dict["routes"][0]["legs"][0]["steps"][0]["steps"]
-    line_counter = 0
+    data = dm_dict['routes'][0]['legs'][0]['steps']
+    step = 0;
     retStr = ""
-    for item in steps:
-        retStr += item["html_instructions"] + "\n"
-        line_counter += 1
-    print line_counter
+    for i in data:
+        step += 1;
+        retStr += "Step " + str(step) + ":<br>\n"
+        retStr += i['html_instructions'] + "<br>\n"
+        mode = i['travel_mode']
+        if (mode == "WALKING"):
+            for direction in i['steps']:
+                if 'html_instructions' in direction:
+                    retStr += direction['html_instructions'] + "<br>\n"
+        elif (mode == "TRANSIT"):
+            details = i['transit_details']
+            retStr += details['departure_stop']['name'] + " to " + details['arrival_stop']['name'] + "<br>\n"
+            retStr += "Take the "
+            if 'short_name' in details['line']:
+                retStr += details['line']['short_name'] + " train "
+            elif 'name' in details['line']:
+                retStr += details['line']['name'] + " "
+            retStr += str(details['num_stops']) + " stops towards " + details['headsign'] + "<br>\n"
+        retStr += "\n"
     return retStr
 
-test_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
-print get_detailed_directions(test_dict)
+# UNNECESSARY
+#def get_directions_walking(dm_dict):
+#    steps = dm_dict["routes"][0]["legs"][0]["steps"]
+#    line_counter = 0
+#    retStr = ""
+#    for item in steps:
+#        retStr += item["html_instructions"] + "\n"
+#        line_counter += 1
+#    print line_counter
+#    return retStr
+
+# UNNECESSARY
+#def get_detailed_directions(dm_dict):
+#    steps = dm_dict["routes"][0]["legs"][0]["steps"][0]["steps"]
+#    line_counter = 0
+#    retStr = ""
+#    for item in steps:
+#        retStr += item["html_instructions"] + "\n"
+#        line_counter += 1
+#    print line_counter
+#    return retStr
+
+# test_dict = get_directions_dict("345 Chambers Street", "67-41 Burns Street", "transit")
+# print get_detailed_directions(test_dict)
