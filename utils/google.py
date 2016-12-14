@@ -192,6 +192,17 @@ def get_directions_walking(origin, destination):
     print line_counter
     return retStr
 
+def get_directions_bicycling(origin, destination):
+    dm_dict = get_directions_dict(origin, destination, "bicycling")
+    steps = dm_dict["routes"][0]["legs"][0]["steps"]
+    line_counter = 0
+    retStr = ""
+    for item in steps:
+        retStr += item["html_instructions"] + "<br>"
+        line_counter += 1
+    print line_counter
+    return retStr
+
 def time_difference(dm_dict, arrival_time):
     departure_time = get_ETA(dm_dict)
     print departure_time
@@ -224,5 +235,5 @@ def time_difference(dm_dict, arrival_time):
 #    return retStr
 
 # print get_directions_transit("345 Chambers Street", "67-41 Burns Street")
-#dm_dict = get_directions_dict("Little Neck", "Penn Station", "transit")
-#print time_difference(dm_dict, '1:44AM')
+#dm_dict = get_directions_dict("Little Neck", "Penn Station", "driving")
+#print get_directions_bicycling("Times Square", "Penn Station")

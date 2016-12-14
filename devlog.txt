@@ -126,4 +126,9 @@ venderbushW -- 2016-12-14 0:00
 - Formatting bugfixes
 - Fixed footer, bug still occurs
 - Current Bugs: gradient cutoff for weather JavaScript display (not long enough?), what happens when Google Maps API can't find the destination? Add a case for that!
-- Still To Implement: lateness functionality + display, Biking directions (biking is broken rn), 
+- Still To Implement: lateness functionality + display, Biking directions (biking is broken rn),
+
+luB -- 2016-12-14 2:21
+- Finished lateness function
+- Finished bicycling directions
+- Fixed formatting for conversion from directionsAPI to Jinja Templating
