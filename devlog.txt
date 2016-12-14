@@ -120,3 +120,10 @@ zhenZ -- 2016-12-13 23:01
 - Improve routing in app.py
 - Reformat directions API methods
 - Fix bug with current_location
+
+venderbushW -- 2016-12-14 0:00
+- Finished Styling Results pages (for real this time)
+- Formatting bugfixes
+- Fixed footer, bug still occurs
+- Current Bugs: gradient cutoff for weather JavaScript display (not long enough?), what happens when Google Maps API can't find the destination? Add a case for that!
+- Still To Implement: lateness functionality + display, Biking directions (biking is broken rn), 

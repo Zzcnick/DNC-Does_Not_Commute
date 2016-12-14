@@ -49,10 +49,11 @@
   <div class="row content">
     <div class="col-sm-2 sidenavl">
     </div>
+    <div class="col-sm-2 sidenav pull-right">
+    </div>
     <div class="col-sm-8 text-left main"> 
       <h1>{{title}}</h1>
       <hr>
- <!-- Form will look like this + nicer and with js-->
         <div class="form-inline">
           <div class="line hov">
             <text id="option1" 
@@ -87,15 +88,16 @@
 
                       </div>
             <hr>
+          <div id = "part" class="cointainer">
           <iframe 
-                  id="part"
-                  width="890"
+                  width="825"
                   height="500"
                   frameborder="0" style="border:0; border-radius: 0px;display:inline;"
                   src={{maplink}} allowfullscreen>
         </iframe>
+        </div>
 
-        <div id = "hide2">
+        <div id = "hide2" style="display: none;">
               <div class="cointainer">
                 <div class="row">
                   <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
@@ -171,24 +173,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  {% if cprecipType != "clear" %}
-                  <div class="col-lg-2">
-                  <img src="../static/img/{{cprecipType}}.png" height="70" width="70">
-                  </div>
-                  <div class="col-lg-4" style="padding-right:20px; border-right: 1px solid #333;">
-                  <h3> Precipitation: {{cprecipType}} </h3>
-                  </div>
-                  {% endif %}
-                  {% if dprecipType != "clear" %}
-                  <div class="col-lg-2">
-                  <img src="../static/img/{{cprecipType}}.png" height="70" width="70">
-                  </div>
-                  <div class="col-lg-4">
-                  <h3> Precipitation: {{cprecipType}} </h3>
-                  </div>
-                  {% endif %}
-                </div>
-                <div class="row">
                   <div class="col-lg-2">
                   <img src="../static/img/wind.png" height="70" width="70">
                   </div>
@@ -213,10 +197,10 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-6 text-center" style="padding-right:20px; border-right: 1px solid #333;">
-                  <h5>Sunrise</h5>
+                  <b>Sunrise</b>
                   </div>
                   <div class="col-lg-6 text-center">
-                  <h5>Sunset</h5>
+                  <b>Sunset</b>
                   </div>
                 </div>
                 <div class="row">
@@ -229,11 +213,11 @@
                 </div>
               </div>
               <hr>
-              </div>
+            </div>
 
       <div id = "hide">
         <div class="cointainer">
-          <h2>Estimated Arrival: {{etime}} minutes</h2>
+          <h2>Estimated Arrival: <b>{{etime}} minutes</b></h2>
           <br>
           </div>
             {{directions|safe}}
@@ -246,8 +230,7 @@
         
     </div>
   </div>
-              <div class="col-sm-2 sidenav">
-    </div>
+              
 </div>
     </div>
               

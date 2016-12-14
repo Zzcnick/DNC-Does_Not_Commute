@@ -117,10 +117,16 @@ hr {
 #hide{
           display: none;
 }
+#hide2{
+          display: none;
+}
 #option1:hover{
         cursor: pointer;
 }
 #option2:hover{
+        cursor: pointer;
+}
+#option3:hover{
         cursor: pointer;
 }
 
