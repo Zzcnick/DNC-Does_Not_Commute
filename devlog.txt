@@ -139,3 +139,10 @@ venderbushW -- 2016-12-14 11:44
 - Implemented favicon
 - Bugs: Gradient Cutoff
 - To Implement: Lateness Functionality
+
+ostlundW -- 2016-12-14 19:58
+- Fixed gradient cutoff
+
+venderbushW -- 2016-12-14 20:39
+- Implemented and styled lateness functionality
+- Fixed styling bugs

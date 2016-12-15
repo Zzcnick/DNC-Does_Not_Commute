@@ -1,4 +1,5 @@
 import json, urllib, urllib2, datetime
+from time import gmtime, strftime
 
 
 key_gen = open("keys.txt", "r").read().strip().split("\n")[0]
@@ -203,24 +204,27 @@ def get_directions_bicycling(origin, destination):
     print line_counter
     return retStr
 
-def time_difference(dm_dict, arrival_time):
-    departure_time = get_ETA(dm_dict)
-    print departure_time
+def time_difference(eta, arrival_time):
+    current_time = strftime("%H:%M")
+    trip_duration = eta
     indexOfArrival = arrival_time.find(":")
-    indexOfDeparture = departure_time.find(":")
+    indexOfDeparture = current_time.find(":")
     hour_arrival = int(arrival_time[0:indexOfArrival])
-    hour_departure = int(departure_time[0:indexOfDeparture])
-    if hour_arrival == 12 and arrival_time[-2] == 'a':
-        hour_arrival = 0
-    elif arrival_time[-2]== 'p' and arrival_time[0:2] != 12:
-        hour_arrival += 12
-    if hour_departure == 12 and departure_time[-2] == 'a':
-        hour_departure = 0
-    elif departure_time[-2] == 'p':
-        hour_departure += 12
+    hour_departure = int(current_time[0:indexOfDeparture])
+    print("arrival" + str(hour_arrival))
+    print("departure" + str(hour_departure))
+    # if hour_arrival == 12 and arrival_time[-2] == 'a':
+    #     hour_arrival = 0
+    # elif arrival_time[-2]== 'p' and arrival_time[0:2] != 12:
+    #     hour_arrival += 12
+    # if hour_departure == 12 and departure_time[-2] == 'a':
+    #     hour_departure = 0
+    # elif departure_time[-2] == 'p':
+    #     hour_departure += 12
     arrival_minutes = (hour_arrival * 60) + int(arrival_time[indexOfArrival + 1: indexOfArrival + 3])
-    departure_minutes = (hour_departure * 60) + int(departure_time[indexOfDeparture + 1: indexOfDeparture + 3])
-    return departure_minutes - arrival_minutes
+    departure_minutes = (hour_departure * 60) + int(current_time[indexOfDeparture + 1: indexOfDeparture + 3])
+    difference = abs(departure_minutes - arrival_minutes)
+    return trip_duration - difference
 
 
 # UNNECESSARY

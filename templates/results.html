@@ -88,8 +88,16 @@
 
                       </div>
                       <div class="btn-group btn-group-lg pull-right">
+                      {% if tdiff >= 0 %}
+                      <button type = "button" class = "btn btn-danger">You're going to be late!</button>
+                      {% endif %}
+                      {% if tdiff < 0 %}
+                      <button type = "button" class = "btn btn-success">You can make it on time!</button>
+                      {% endif %}
                         <button type = "button" class = "btn btn-default">{{ctemp}} °F</button>
-                      <img class = "pull-right" src="../static/img/{{cicon}}.png" height="50" width="50">
+                      <img class = "pull-right" src="../static/img/{{cicon}}.png" height="46" width="50">
+                      
+
                       
                         
                      
@@ -225,7 +233,7 @@
 
       <div id = "hide">
         <div class="cointainer">
-          <h2>Estimated Arrival: <b>{{etime}} minutes</b></h2>
+          <h2>Best Case Arrival: <b>{{etime}} minutes</b></h2>
           <br>
           </div>
             {{directions|safe}}

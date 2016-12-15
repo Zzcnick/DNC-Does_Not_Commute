@@ -25,6 +25,7 @@ def results():
 
 	# Destination Coordinates
 	destination = request.form['destination']
+	arrivalTime = request.form['arrivalTime']
 	destinationCoordinates = google.gc_latlng(destination)
 
 	# Transport Mode
@@ -34,6 +35,7 @@ def results():
 	eta = google.dm_eta(currentCoordinates[0], currentCoordinates[1],
 		            destinationCoordinates[0], destinationCoordinates[1],
                             transport)
+	timeDifference = google.time_difference(eta, arrivalTime)
 
 	# Weather
 	currentWeather = darksky.getWeatherDict(currentCoordinates[0], currentCoordinates[1], 0)
@@ -79,7 +81,9 @@ def results():
                                daddress = destinationAddress,
                                maplink = google.get_map_link(currentAddress, destinationAddress, transport),
                                directions = directionDetails,
-                               etime = eta
+                               etime = eta,
+                               atime = arrivalTime,
+                               tdiff = timeDifference
         )
 
 
