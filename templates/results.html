@@ -31,6 +31,27 @@
             document.getElementById(b).style.textDecoration= "underline";
         }
     </script>
+    <style>
+        .noUser2:hover{
+            cursor: default;
+            color: white;
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
+        .noUser3:hover{
+            cursor: default;
+            color: black;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+        .noUser1:hover{
+            background-color: #d9534f;
+            border-color: #d9534f;
+            color: white;
+            cursor: default;
+            border-width: 1px;
+        }
+    </style>
 </head>
 <body>
 
@@ -89,12 +110,12 @@
                       </div>
                       <div class="btn-group btn-group-lg pull-right">
                       {% if tdiff >= 0 %}
-                      <button type = "button" class = "btn btn-danger">You're going to be late!</button>
+                      <button type = "button" class = "btn noUser1 btn-danger">You're going to be late!</button>
                       {% endif %}
                       {% if tdiff < 0 %}
-                      <button type = "button" class = "btn btn-success">You can make it on time!</button>
+                      <button type = "button" class = "noUser2 btn btn-success">You can make it on time!</button>
                       {% endif %}
-                        <button type = "button" class = "btn btn-default">{{ctemp}} °F</button>
+                        <button type = "button" class = "noUser3 btn btn-default">{{ctemp}} °F</button>
                       <img class = "pull-right" src="../static/img/{{cicon}}.png" height="46" width="50">
                       
 
