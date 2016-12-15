@@ -11,7 +11,7 @@ app.secret_key = "Welcome to the DNC!!!!!!!!"
 @app.route("/", methods=["POST","GET"])
 def root():
 	return render_template("main.html",
-							title="DoesNOTCommute")
+                               title="DoesNOTCommute")
 
 @app.route("/result", methods=["POST","GET"])
 def results():
@@ -27,6 +27,12 @@ def results():
 	destination = request.form['destination']
 	arrivalTime = request.form['arrivalTime']
 	destinationCoordinates = google.gc_latlng(destination)
+
+        # Checking Locations
+        if (destinationCoordinates is None or currentCoordinates is None):
+                return render_template("main.html",
+                                       title="DoesNOTCommute",
+                                       errorMessage="We could not find one of the destinations you requested; please retry!")
 
 	# Transport Mode
 	transport = str(request.form['transportMode'])
@@ -90,17 +96,16 @@ def results():
 @app.route("/about/", methods=["POST","GET"])
 def about():
 	return render_template("about.html",
-							title="About DNC")
+                               title="About DNC")
 
 @app.route("/test/", methods=["GET"])
 def test():
 	return render_template("testMap.html",
-							embed= google.get_map_link("Little Neck", "Stuyvesant High School", "transit"))
+                               embed= google.get_map_link("Little Neck", "Stuyvesant High School", "transit"))
 
 # Running The App
 if __name__ == "__main__":
 	app.debug = True
 	app.run()
-
 
 

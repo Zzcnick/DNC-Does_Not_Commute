@@ -37,6 +37,7 @@ def call_gc_ll(lat, lng):
     gc_data = urllib2.urlopen(gc_url)
     gc_get = gc_data.read()
     gc_dict = json.loads(gc_get)
+    # print gc_url
     return gc_dict
 
 def call_gc_ad(adr):
@@ -45,6 +46,7 @@ def call_gc_ad(adr):
     gc_data = urllib2.urlopen(gc_url)
     gc_get = gc_data.read()
     gc_dict = json.loads(gc_get)
+    # print gc_url
     return gc_dict
     
 def gc_address(lat, lng):
@@ -53,6 +55,8 @@ def gc_address(lat, lng):
 
 def gc_latlng(adr):
     gc_dict = call_gc_ad(adr)
+    if gc_dict['results'][0]['place_id'] == 'ChIJCzYy5IS16lQRQrfeQ5K5Oxw':
+        return None
     return [gc_dict['results'][0]['geometry']['location']['lat'],
             gc_dict['results'][0]['geometry']['location']['lng']]
 
@@ -66,7 +70,7 @@ def call_dm(lat1, lng1, lat2, lng2, mode=None):
     add1 = webstring(add1_raw)
     add2_raw = gc_address(lat2,lng2)
     add2 = webstring(add2_raw)
-    print lat1, lng1, lat2, lng2
+    # print lat1, lng1, lat2, lng2
     tmode = ""
     if mode is not None:
         tmode = mode
@@ -106,7 +110,7 @@ def get_directions_dict(origin, destination, mode):
     dm_data = urllib2.urlopen(dm_url)
     dm_get = dm_data.read()
     dm_dict = json.loads(dm_get)
-    print dm_url
+    # print dm_url
     return dm_dict
 
 def get_map_link(origin, destination, mode):
@@ -178,7 +182,7 @@ def get_directions_transit(origin, destination):
                 retStr += details['line']['short_name'] + " train "
             elif 'name' in details['line']:
                 retStr += details['line']['name'] + " "
-            retStr += str(details['num_stops']) + " stops towards " + details['headsign'] + "<br>"
+            retStr += str(details['num_stops']) + " stops towards " + details['headsign'] + "<br><br>"
         retStr += "\n"
     return retStr
 
@@ -190,7 +194,7 @@ def get_directions_walking(origin, destination):
     for item in steps:
         retStr += item["html_instructions"] + "<br>"
         line_counter += 1
-    print line_counter
+    # print line_counter
     return retStr
 
 def get_directions_bicycling(origin, destination):
@@ -201,7 +205,7 @@ def get_directions_bicycling(origin, destination):
     for item in steps:
         retStr += item["html_instructions"] + "<br>"
         line_counter += 1
-    print line_counter
+    # print line_counter
     return retStr
 
 def time_difference(eta, arrival_time):
@@ -211,8 +215,8 @@ def time_difference(eta, arrival_time):
     indexOfDeparture = current_time.find(":")
     hour_arrival = int(arrival_time[0:indexOfArrival])
     hour_departure = int(current_time[0:indexOfDeparture])
-    print("arrival" + str(hour_arrival))
-    print("departure" + str(hour_departure))
+    # print("arrival" + str(hour_arrival))
+    # print("departure" + str(hour_departure))
     # if hour_arrival == 12 and arrival_time[-2] == 'a':
     #     hour_arrival = 0
     # elif arrival_time[-2]== 'p' and arrival_time[0:2] != 12:
@@ -222,9 +226,10 @@ def time_difference(eta, arrival_time):
     # elif departure_time[-2] == 'p':
     #     hour_departure += 12
     arrival_minutes = (hour_arrival * 60) + int(arrival_time[indexOfArrival + 1: indexOfArrival + 3])
-    departure_minutes = (hour_departure * 60) + int(current_time[indexOfDeparture + 1: indexOfDeparture + 3])
-    difference = abs(departure_minutes - arrival_minutes)
-    return trip_duration - difference
+    departure_minutes = (hour_departure * 60) + int(current_time[indexOfDeparture + 1: indexOfDeparture + 3]) + trip_duration
+    if departure_minutes >= 1440:
+        departure_minutes -= 1440
+    return departure_minutes - arrival_minutes
 
 
 # UNNECESSARY
