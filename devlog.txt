@@ -80,6 +80,11 @@ zhenZ -- 2016-12-08 14:47
 venderbushW -- 2016-12-08 14:50
 - Added imgs
 
+ostlundW -- 2016-12-11
+- Added javascript so the user could flip through different pages of the form
+    - This currently disables the purpose of the required element in tags
+        - Will be fixed with the implementation of a back button or more js to predict user mishaps
+
 venderbushW -- 2016-12-11 14:23
 - Did some styling on the homepage
 - Broke the navbar, the icon is too large which offsets the other buttons
@@ -92,6 +97,15 @@ venderbushW -- 2016-12-11 16:32
 - Did even more styling
 - Added custom.css
 - added Favicon to main folder (for future use)
+
+ostlundW -- 2016-12-12
+- Fixed the footer text of the main.html page
+- Began work on the results page that the user will see after filling out the form
+
+ostlundW -- 2016-12-12
+- Added back buttons for the user
+- Added error messages that (hopefully) correct the user's mistakes
+- Added a menu buttons that allow the user to go back and forth between different sections of the results.html page (similarly to the multipage form)
 
 venderbushW -- 2016-12-12 14:50
 - Did more styling
@@ -156,3 +170,7 @@ zhenZ -- 2016-12-15 00:08
 zhenZ -- 2016-12-15 01:08
 - Added FINAL document with differences between project and design doc
 - Changed README
+
+ostlundW -- 2016-12-15 02:38
+- Made some minor touchups with the gradient feature in the results.html page
+- Added more error messages
