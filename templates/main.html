@@ -17,11 +17,20 @@
     </style>
   <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
     <script>
+        function sub(){
+            if(document.getElementById("time").value==""){
+                document.getElementById("alert1").style.display = "inline";
+            }else{
+                document.getElementsByTagName("form")[0].submit();
+            }
+        }
+        
         function fnctn(a, b){
             var i, k;
             for(i=0; i<b.length; i++){
                 if(a == b[i]){
                     document.getElementById("alert").style.display="none";
+                    document.getElementById("alert1").style.display = "none";
                     if(i==0 && document.getElementById("am1").value == ""){
                         document.getElementById("am1").value="current_location";
                         k=i+1;
@@ -103,7 +112,7 @@
 
             </div>
               <div  id = "option2" class="contain">
-                  <i><b><h5 id="alert" style="display:none; color:#a94442;">Please Enter a Destination!</h5></b></i>
+                  <i><h5 id="alert" style="display:none; color:#a94442; font-weight: bold;">Please Enter a Destination!</h5></i>
                   <h3>Where would you like to go?</h3>
                   <div>
                   <br>
@@ -148,24 +157,25 @@
                     <div onclick="fnctn('option3', ['option1','option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></div>
               </div>
               <div  id = "option4" class="contain">
+                  <i><h5 id="alert1" style="display:none; color:#a94442; font-weight: bold;">Please Enter a Destination!</h5></i>
                   <h3>When would you like to arrive?</h3>
                   <div>
                    <img src="static/img/42.png" height="10%" width="10%">
                    </div>
-                <input type="time" name="arrivalTime">
+                <input type="time" id="time" name="arrivalTime" required>
                 <div>
                 <br>
-                <input type="submit" name="Commute" class="btn btn-primary" >
+                <div  name="Commute" class="btn btn-primary" onclick="sub()" style="margin-bottom: 2%;" > Submit
                 </div>
                     <br>
                   <div class="cen" onclick="fnct('option4', ['option1', 'option2','option3','option4'])" class="hov"><button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   </button></div>
               </div>
+            </div>
         </form>
         <br>
         <br>
     </div>
-    <div class="col-sm-2 sidenav">
-    </div>
+      <div class="col-sm-2 sidenav pull-right"></div>
   </div>
     
 </div>
