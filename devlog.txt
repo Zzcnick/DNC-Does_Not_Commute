@@ -146,3 +146,13 @@ ostlundW -- 2016-12-14 19:58
 venderbushW -- 2016-12-14 20:39
 - Implemented and styled lateness functionality
 - Fixed styling bugs
+
+zhenZ -- 2016-12-15 00:08
+- Fixed bug involving time
+- Centered iFrame
+- Added check for valid addresses
+- Minor code organization
+
+zhenZ -- 2016-12-15 01:08
+- Added FINAL document with differences between project and design doc
+- Changed README
