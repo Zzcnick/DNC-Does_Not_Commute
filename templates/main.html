@@ -21,10 +21,12 @@
             var i, k;
             for(i=0; i<b.length; i++){
                 if(a == b[i]){
+                    document.getElementById("alert").style.display="none";
                     if(i==0 && document.getElementById("am1").value == ""){
                         document.getElementById("am1").value="current_location";
                         k=i+1;
                     }else if(i==1 && document.getElementById("am2").value == ""){
+                        document.getElementById("alert").style.display="inline";
                         k= i;
                     }else {
                         k = i+1;
@@ -43,6 +45,7 @@
                 }
                 document.getElementById(b[i]).style.display = "none";
             }
+             document.getElementById("alert").style.display="none"; 
             document.getElementById(b[k]).style.display = "inherit";
         }
     </script>
@@ -100,6 +103,7 @@
 
             </div>
               <div  id = "option2" class="contain">
+                  <i><b><h5 id="alert" style="display:none; color:#a94442;">Please Enter a Destination!</h5></b></i>
                   <h3>Where would you like to go?</h3>
                   <div>
                   <br>

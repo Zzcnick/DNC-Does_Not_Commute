@@ -20,6 +20,13 @@
             for(k=0; k<otherList.length; k++){
                 document.getElementById(otherList[k]).style.textDecoration = "none";
             }
+            if(a == "hide2"){
+                document.getElementsByClassName("col-sm-2")[1].style.height = "122%";
+                document.getElementsByClassName("col-sm-2")[0].style.height = "122%";;
+            }else{
+                document.getElementsByClassName("col-sm-2")[1].style.height = "100%";
+                document.getElementsByClassName("col-sm-2")[0].style.height = "100%";
+            }
             document.getElementById(a).style.display = "inline";
             document.getElementById(b).style.textDecoration= "underline";
         }
@@ -48,9 +55,9 @@
   
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenavl">
+    <div class="col-sm-2 sidenavl" id="dnav">
     </div>
-    <div class="col-sm-2 sidenav pull-right">
+    <div class="col-sm-2 sidenav pull-right" id="snv">
     </div>
     <div class="col-sm-8 text-left main"> 
       <h1>{{title}}</h1>
